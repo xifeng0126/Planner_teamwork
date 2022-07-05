@@ -164,6 +164,7 @@ Makefile: ../planner_teamwork/planner_teamwork.pro D:/Qt/Qt5.4.0/5.4/mingw491_32
 		D:/Qt/Qt5.4.0/5.4/mingw491_32/mkspecs/features/resolve_config.prf \
 		D:/Qt/Qt5.4.0/5.4/mingw491_32/mkspecs/features/exclusive_builds_post.prf \
 		D:/Qt/Qt5.4.0/5.4/mingw491_32/mkspecs/features/default_post.prf \
+		D:/Qt/Qt5.4.0/5.4/mingw491_32/mkspecs/features/c++11.prf \
 		D:/Qt/Qt5.4.0/5.4/mingw491_32/mkspecs/features/win32/rtti.prf \
 		D:/Qt/Qt5.4.0/5.4/mingw491_32/mkspecs/features/precompile_header.prf \
 		D:/Qt/Qt5.4.0/5.4/mingw491_32/mkspecs/features/warn_on.prf \
@@ -290,6 +291,7 @@ D:\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\features\win32\default_pre.prf:
 D:\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\features\resolve_config.prf:
 D:\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\features\exclusive_builds_post.prf:
 D:\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\features\default_post.prf:
+D:\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\features\c++11.prf:
 D:\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\features\win32\rtti.prf:
 D:\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\features\precompile_header.prf:
 D:\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\features\warn_on.prf:

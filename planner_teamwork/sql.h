@@ -4,7 +4,7 @@
 #include<QSqlError>
 #include<QSqlQuery>
 #include<QDebug>
-
+#include<QMap>
 class sql
 {
 public:
@@ -19,7 +19,7 @@ public:
     void InsertData(QString insert_sql);
     void UpdateData(QString update_sql);
     void QueryAllData(QString select_all_sql);
-    enum priority {S,A,B,C,D,E};//枚举表示优先级，越小优先级越高,但是sql语句好像不能用枚举类型？
+   // enum priority {S,A,B,C,D,E};//不太行，弃用
 };
 
 #endif // SQL_H

@@ -12,16 +12,23 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 TARGET = planner_teamwork
 TEMPLATE = app
 
+CONFIG += c++11
 
 SOURCES += main.cpp\
         mainwindow.cpp \
     sql.cpp \
-    login.cpp
+    login.cpp \
+    startui.cpp \
+    signup.cpp
 
 HEADERS  += mainwindow.h \
     sql.h \
-    login.h
+    login.h \
+    startui.h \
+    signup.h
 
 FORMS    += mainwindow.ui \
-    login.ui
+    login.ui \
+    startui.ui \
+    signup.ui
 
