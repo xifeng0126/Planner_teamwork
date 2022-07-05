@@ -15,10 +15,13 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
         mainwindow.cpp \
-    sql.cpp
+    sql.cpp \
+    login.cpp
 
 HEADERS  += mainwindow.h \
-    sql.h
+    sql.h \
+    login.h
 
-FORMS    += mainwindow.ui
+FORMS    += mainwindow.ui \
+    login.ui
 
