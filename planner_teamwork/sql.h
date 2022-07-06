@@ -8,7 +8,6 @@
 class sql
 {
 public:
-    QSqlDatabase db;
     sql();
     ~sql();
     void CreatDb();
