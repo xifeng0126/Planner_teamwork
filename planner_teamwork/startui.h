@@ -20,7 +20,6 @@ public:
     QPushButton* yesbtn;
     QPushButton* nobtn;
     QMessageBox * m_box = new QMessageBox(QMessageBox::Question,"确认","是否确认退出");
-    void buttonClicked(QAbstractButton *btn);
     ~startui();
 signals:
     void login_start();
@@ -28,6 +27,8 @@ signals:
 
 private:
     Ui::startui *ui;
+public slots:
+    void buttonClicked(QAbstractButton *btn);
 };
 
 #endif // STARTUI_H
