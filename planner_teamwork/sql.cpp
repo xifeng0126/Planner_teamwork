@@ -1,4 +1,5 @@
-﻿#include "sql.h"
+#include "sql.h"
+
 
 sql::sql()
 {
@@ -41,7 +42,7 @@ void sql::CloseDb()
 
 void sql::CreateTable(QString creat_sql)
 {
-    QSqlQuery sql_query;
+    QSqlQuery sql_query(db);
     //sql_query.prepare(creat_sql);
     if(!sql_query.exec(creat_sql))
     {
@@ -55,7 +56,7 @@ void sql::CreateTable(QString creat_sql)
 
 void sql::InsertData(QString insert_sql)
 {
-    QSqlQuery sql_query;
+    QSqlQuery sql_query(db);
     //sql_query.prepare(insert_sql);
     if(!sql_query.exec(insert_sql))
     {
