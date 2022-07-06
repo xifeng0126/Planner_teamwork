@@ -8,15 +8,18 @@ table::table(QWidget *parent) : QTableView(parent)
 {
 
 }
+
+
+//鼠标右键点击事件
 void table::mouseReleaseEvent(QMouseEvent *event){
     if(event->button()==Qt::RightButton){
         int curRow = currentIndex().row();
-        //qDebug()<<curRow;
-        //connect(this,&table::mouseReleaseEvent,this,releaseSign(curRow));
+        if(curRow<0){
+            qDebug()<<"wrong";
+            return;
+        }
         sentSign(curRow);
     }
-
-
 }
 
 void table::sentSign(int i){

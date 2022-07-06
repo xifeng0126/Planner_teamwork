@@ -19,7 +19,9 @@ public:
     void connectDB();
     void intitData();
     void setInportance();
-    void showText(int);
+    void wetherComplit(int);
+    void complited(int);
+    void setModel();
 
 private slots:
     void on_actiona_triggered();
@@ -35,6 +37,8 @@ protected:
 private:
     Ui::MainWindow *ui;
     QSqlTableModel *model;
+    QSqlTableModel *model2;
+    //QSqlTableModel *model3;
     QSqlDatabase db;
 };
 

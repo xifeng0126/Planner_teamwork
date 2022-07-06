@@ -59,7 +59,7 @@
         <item row="1" column="0" colspan="3">
          <widget class="QToolBox" name="toolBox">
           <property name="currentIndex">
-           <number>0</number>
+           <number>1</number>
           </property>
           <widget class="QWidget" name="page_3">
            <property name="geometry">
@@ -67,7 +67,7 @@
              <x>0</x>
              <y>0</y>
              <width>503</width>
-             <height>252</height>
+             <height>226</height>
             </rect>
            </property>
            <attribute name="label">
@@ -79,13 +79,23 @@
             </item>
            </layout>
           </widget>
+          <widget class="QWidget" name="page">
+           <attribute name="label">
+            <string>已完成</string>
+           </attribute>
+           <layout class="QGridLayout" name="gridLayout_5">
+            <item row="0" column="0">
+             <widget class="table" name="tableView_2"/>
+            </item>
+           </layout>
+          </widget>
           <widget class="QWidget" name="page_4">
            <property name="geometry">
             <rect>
              <x>0</x>
              <y>0</y>
              <width>503</width>
-             <height>252</height>
+             <height>226</height>
             </rect>
            </property>
            <attribute name="label">
