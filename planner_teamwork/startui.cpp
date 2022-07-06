@@ -22,7 +22,7 @@ startui::startui(QWidget *parent) :
     connect(ui->exitOut,&QPushButton::clicked,[=](){
         qDebug()<<"exitOut";
         m_box->setWindowFlags(Qt::Dialog);
-        connect(m_box,&QMessageBox::buttonClicked,this,startui::buttonClicked);
+        connect(m_box,&QMessageBox::buttonClicked,this,&startui::buttonClicked);
         m_box->exec();
     });
 }

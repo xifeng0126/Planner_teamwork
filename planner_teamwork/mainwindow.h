@@ -1,11 +1,10 @@
-﻿#ifndef MAINWINDOW_H
+#ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
 #include <QMainWindow>
 #include<QSqlTableModel>
-#include"login.h"
-#include"startui.h"
-#include"signup.h"
+#include"table.h"
+
 namespace Ui {
 class MainWindow;
 }
@@ -16,13 +15,13 @@ class MainWindow : public QMainWindow
 
 public:
     explicit MainWindow(QWidget *parent = 0);
-    login m_log;
-    startui m_start;
-    signup m_sign;
+    ~MainWindow();
     void connectDB();
     void intitData();
-    ~MainWindow();
-public slots:
+    void setInportance();
+    void showText(int);
+
+private slots:
     void on_actiona_triggered();
 
     void on_actionb_triggered();
@@ -31,7 +30,8 @@ public slots:
 
     void on_cansle_clicked();
 
-
+protected:
+    //void mouseReleaseEvent(QMouseEvent *event) override;
 private:
     Ui::MainWindow *ui;
     QSqlTableModel *model;
