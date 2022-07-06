@@ -1,3 +1,4 @@
+
 ﻿#include "login.h"
 #include "ui_login.h"
 #include<QDialog>
@@ -46,3 +47,4 @@ login::~login()
 {
     delete ui;
 }
+

@@ -1,3 +1,4 @@
+
 ﻿#ifndef login_H
 #define login_H
 
@@ -33,3 +34,4 @@ private:
     Ui::login *ui;
 };
 #endif // login_H
+

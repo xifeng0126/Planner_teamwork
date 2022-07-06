@@ -1,3 +1,4 @@
+
 ﻿#include "mainwindow.h"
 #include <QApplication>
 #include "sql.h"
@@ -22,3 +23,4 @@ int main(int argc, char *argv[])
 //    m_sql->UpdateData("update tasks set theme = 'play' where id = 1  ");
 //    return 0;
 }
+

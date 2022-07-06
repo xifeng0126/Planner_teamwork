@@ -1,3 +1,4 @@
+
 ﻿#include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include<QMessageBox>
@@ -12,6 +13,16 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+     this->setMinimumSize(1000,600);
+    on_actiona_triggered();
+
+    connectDB();//打开数据库
+
+    intitData();//设置重要性下拉菜单
+
+    //ui->tableView->setEditTriggers(QAbstractItemView::NoEditTriggers);
+
+    connect(ui->tableView,&table::releaseSign,this,&MainWindow::showText);
     connect(&m_start,&startui::login_start,[=](){//测试初始登录界面
         m_login.show();
     });
@@ -43,6 +54,19 @@ MainWindow::~MainWindow()
 {
     delete ui;
 }
+void MainWindow::showText(int i){
+
+    QWidget *dlg=new QWidget(this);
+    //dlg->setAttribute(Qt::WA_DeleteOnClose);
+    dlg->setMinimumSize(500,500);
+//    QLabel lable(dlg);
+//    lable.setText("hello");
+//    lable.show();
+
+//    QTextEdit edit(dlg);
+    dlg->show();
+    //qDebug()<<i<<i;
+}
 void MainWindow::on_actiona_triggered()
 {
     ui->stackedWidget->setCurrentWidget(ui->task);
@@ -68,19 +92,32 @@ void MainWindow::connectUSER(){
 }
 void MainWindow::connectDB(){
     db=QSqlDatabase::addDatabase("QSQLITE");
-    db.setDatabaseName("mydatabase.db");
+    db.setDatabaseName("test.db");
 
     if(!db.open()){
         QMessageBox::warning(this,"错误",db.lastError().text());
         return;
     }
 
+    if(!db.tables().contains("inportance")){
+        setInportance();
+    }
+
     QSqlQuery sql(db);
-    sql.exec("create table tasks(任务,重要性,开始时间,结束时间)");
+    sql.exec("create table tasks(任务,重要性,开始时间,结束时间,详情)");
     model=new QSqlTableModel(this);
     model->setTable("tasks");
     ui->tableView->setModel(model);
+    //model->removeColumn(3);
     model->select();
+}
+void MainWindow::setInportance(){    //设置重要性表单
+    QSqlQuery sql(db);
+    sql.exec("create table inportance(inportance)");
+    sql.exec("insert into inportance values (\"A\")");
+    sql.exec("insert into inportance values (\"B\")");
+    sql.exec("insert into inportance values (\"C\")");
+    sql.exec("insert into inportance values (\"D\")");
 }
 
 void MainWindow::intitData(){
@@ -91,29 +128,36 @@ void MainWindow::intitData(){
 
 void MainWindow::on_ok_clicked()
 {
-    if(!ui->lineEdit->text().isEmpty()||ui->comboBox->currentText().compare(QString::fromLocal8Bit("选择重要性"))==false){
+    if(!ui->lineEdit->text().isEmpty()&&!ui->textEdit->toPlainText().isEmpty()){
         QSqlQuery sql(db);
-        //sql.exec("create table tasks(任务,重要性,开始时间,结束时间)");
-        sql.exec(QString("insert into tasks values('%1','%2','%3','%4')")
-                 .arg(ui->lineEdit->text()).arg(ui->comboBox->currentText()).arg(ui->dateTimeEdit->dateTime().toString()).arg(ui->dateTimeEdit_2->dateTime().toString()));
+        //sql.exec("create table tasks(任务,重要性,开始时间,结束时间,详情)");
+        sql.exec(QString("insert into tasks values('%1','%2','%3','%4','%5')")
+                 .arg(ui->lineEdit->text()).arg(ui->comboBox->currentText()).arg(ui->dateTimeEdit->dateTime().toString()).arg(ui->dateTimeEdit_2->dateTime().toString()).arg(ui->textEdit->toPlainText()));
 
         model=new QSqlTableModel(this);
         model->setTable("tasks");
         ui->tableView->setModel(model);
+        //model->removeColumn(3);
         model->select();
 
-        ui->lineEdit->clear();
+        ui->toolBox->setCurrentWidget(ui->page_3);
+
+        on_cansle_clicked();
 
     }
-
-
 }
 
 
 void MainWindow::on_cansle_clicked()
 {
-
+    ui->lineEdit->clear();
+    /*添加时间等清除操作*/
 }
+
+//void MainWindow::mouseReleaseEvent(QMouseEvent *event){
+//    int curRow = ui->tableView->currentIndex().row();
+//    qDebug()<<curRow;
+//}
 QString MainWindow::m_logincheck()
 {
 
@@ -178,3 +222,4 @@ bool MainWindow::QueryUserData_1()//遍历查询
     }
     return false;
 }
+

@@ -19,13 +19,15 @@ SOURCES += main.cpp\
     sql.cpp \
     login.cpp \
     startui.cpp \
-    signup.cpp
+    signup.cpp \
+    table.cpp
 
 HEADERS  += mainwindow.h \
     sql.h \
     login.h \
     startui.h \
-    signup.h
+    signup.h \
+    table.h
 
 FORMS    += mainwindow.ui \
     login.ui \

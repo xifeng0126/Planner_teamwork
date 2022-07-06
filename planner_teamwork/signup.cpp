@@ -1,3 +1,4 @@
+
 ﻿#include "signup.h"
 #include "ui_signup.h"
 #include<QDialog>
@@ -44,3 +45,4 @@ signup::~signup()
 {
     delete ui;
 }
+
