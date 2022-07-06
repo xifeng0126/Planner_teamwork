@@ -3,6 +3,8 @@
 #include<QDialog>
 #include<QMessageBox>
 
+QString login::user = NULL;
+QString login::pass = NULL;
 login::login(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::login)
@@ -12,9 +14,9 @@ login::login(QWidget *parent) :
     yesbtn = m_box->addButton("yes", QMessageBox::AcceptRole);
      nobtn = m_box->addButton("no", QMessageBox::RejectRole);
     connect(ui->signIn,&QPushButton::clicked,[=](){
-        QString user = ui->userName->text();
-        QString pass = ui->passWord->text();
-        check(user,pass);
+        user = ui->userName->text();
+        pass = ui->passWord->text();
+        checkStart();
     });
     connect(ui->exitOut,&QPushButton::clicked,[=](){
         m_box->setWindowFlags(Qt::Dialog);
@@ -22,13 +24,15 @@ login::login(QWidget *parent) :
         m_box->exec();
     });
 }
-void login::check(QString userName,QString passWord){
-    if(userName=="user"&&passWord=="passwod"){
-        login::close();
+bool login::check(QString username,QString password){
+
+    if(user==username&&pass==password){
+        this->close();
         appStart();
+        return true;
     }
     else
-    QMessageBox::warning(this,"错误","用户名或密码错误");
+    return false;
 }
 void login::buttonClicked(QAbstractButton *btn){
     if(btn ==(QAbstractButton *) nobtn)
