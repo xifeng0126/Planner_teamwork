@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProject>
-<<<<<<< HEAD
-<!-- Written by QtCreator 3.3.0, 2022-07-06T23:40:40. -->
-=======
-<!-- Written by QtCreator 3.3.0, 2022-07-06T19:18:04. -->
->>>>>>> 3e15dcd1b7cddd2aec379f0b71d80f97f3317d3e
+<!-- Written by QtCreator 3.3.0, 2022-07-07T08:28:00. -->
 <qtcreator>
  <data>
   <variable>EnvironmentId</variable>
@@ -229,8 +225,8 @@
     <value type="int" key="PE.EnvironmentAspect.Base">2</value>
     <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.DefaultDisplayName">planner_teamwork</value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">planner_teamwork2</value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">Qt4ProjectManager.Qt4RunConfiguration:E:/code/C++/sql_test/Planner_teamwork/planner_teamwork/planner_teamwork.pro</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName"></value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">Qt4ProjectManager.Qt4RunConfiguration:E:/code/C++/Planner_teamwork/Planner_teamwork/planner_teamwork/planner_teamwork.pro</value>
     <value type="QString" key="Qt4ProjectManager.Qt4RunConfiguration.CommandLineArguments"></value>
     <value type="QString" key="Qt4ProjectManager.Qt4RunConfiguration.ProFile">planner_teamwork.pro</value>
     <value type="bool" key="Qt4ProjectManager.Qt4RunConfiguration.UseDyldImageSuffix">false</value>

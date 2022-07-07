@@ -1,7 +1,11 @@
 /********************************************************************************
 ** Form generated from reading UI file 'mainwindow.ui'
 **
+<<<<<<< HEAD
 ** Created by: Qt User Interface Compiler version 5.4.0
+=======
+** Created by: Qt User Interface Compiler version 5.9.9
+>>>>>>> 80ad0b35cc929d6e5336d6f0a55bed3e8819c61f
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -27,11 +31,18 @@
 #include <QtWidgets/QSpacerItem>
 #include <QtWidgets/QStackedWidget>
 #include <QtWidgets/QStatusBar>
+<<<<<<< HEAD
 #include <QtWidgets/QTableView>
+=======
+>>>>>>> 80ad0b35cc929d6e5336d6f0a55bed3e8819c61f
 #include <QtWidgets/QTextEdit>
 #include <QtWidgets/QToolBox>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
+<<<<<<< HEAD
+=======
+#include "table.h"
+>>>>>>> 80ad0b35cc929d6e5336d6f0a55bed3e8819c61f
 
 QT_BEGIN_NAMESPACE
 
@@ -52,7 +63,11 @@ public:
     QToolBox *toolBox;
     QWidget *page_3;
     QGridLayout *gridLayout_3;
+<<<<<<< HEAD
     QTableView *tableView;
+=======
+    table *tableView;
+>>>>>>> 80ad0b35cc929d6e5336d6f0a55bed3e8819c61f
     QWidget *page_4;
     QGridLayout *gridLayout_4;
     QHBoxLayout *horizontalLayout;
@@ -118,10 +133,17 @@ public:
         toolBox->setObjectName(QStringLiteral("toolBox"));
         page_3 = new QWidget();
         page_3->setObjectName(QStringLiteral("page_3"));
+<<<<<<< HEAD
         page_3->setGeometry(QRect(0, 0, 503, 249));
         gridLayout_3 = new QGridLayout(page_3);
         gridLayout_3->setObjectName(QStringLiteral("gridLayout_3"));
         tableView = new QTableView(page_3);
+=======
+        page_3->setGeometry(QRect(0, 0, 503, 252));
+        gridLayout_3 = new QGridLayout(page_3);
+        gridLayout_3->setObjectName(QStringLiteral("gridLayout_3"));
+        tableView = new table(page_3);
+>>>>>>> 80ad0b35cc929d6e5336d6f0a55bed3e8819c61f
         tableView->setObjectName(QStringLiteral("tableView"));
 
         gridLayout_3->addWidget(tableView, 0, 0, 1, 1);
@@ -129,7 +151,11 @@ public:
         toolBox->addItem(page_3, QString::fromUtf8("\350\256\241\345\210\222"));
         page_4 = new QWidget();
         page_4->setObjectName(QStringLiteral("page_4"));
+<<<<<<< HEAD
         page_4->setGeometry(QRect(0, 0, 503, 249));
+=======
+        page_4->setGeometry(QRect(0, 0, 503, 252));
+>>>>>>> 80ad0b35cc929d6e5336d6f0a55bed3e8819c61f
         gridLayout_4 = new QGridLayout(page_4);
         gridLayout_4->setObjectName(QStringLiteral("gridLayout_4"));
         horizontalLayout = new QHBoxLayout();
@@ -255,7 +281,11 @@ public:
         retranslateUi(MainWindow);
 
         stackedWidget->setCurrentIndex(1);
+<<<<<<< HEAD
         toolBox->setCurrentIndex(1);
+=======
+        toolBox->setCurrentIndex(0);
+>>>>>>> 80ad0b35cc929d6e5336d6f0a55bed3e8819c61f
 
 
         QMetaObject::connectSlotsByName(MainWindow);
@@ -263,6 +293,7 @@ public:
 
     void retranslateUi(QMainWindow *MainWindow)
     {
+<<<<<<< HEAD
         MainWindow->setWindowTitle(QApplication::translate("MainWindow", "MainWindow", 0));
         actiona->setText(QApplication::translate("MainWindow", "task", 0));
         actionb->setText(QApplication::translate("MainWindow", "calc", 0));
@@ -277,6 +308,22 @@ public:
         cansle->setText(QApplication::translate("MainWindow", "\345\217\226\346\266\210", 0));
         toolBox->setItemText(toolBox->indexOf(page_4), QApplication::translate("MainWindow", "\346\267\273\345\212\240", 0));
         menu->setTitle(QApplication::translate("MainWindow", "\347\256\241\347\220\206", 0));
+=======
+        MainWindow->setWindowTitle(QApplication::translate("MainWindow", "MainWindow", Q_NULLPTR));
+        actiona->setText(QApplication::translate("MainWindow", "task", Q_NULLPTR));
+        actionb->setText(QApplication::translate("MainWindow", "calc", Q_NULLPTR));
+        label->setText(QApplication::translate("MainWindow", "\345\255\246\344\271\240\344\273\273\345\212\241", Q_NULLPTR));
+        toolBox->setItemText(toolBox->indexOf(page_3), QApplication::translate("MainWindow", "\350\256\241\345\210\222", Q_NULLPTR));
+        label_2->setText(QApplication::translate("MainWindow", "\344\273\273\345\212\241\357\274\232", Q_NULLPTR));
+        label_6->setText(QApplication::translate("MainWindow", "\350\257\246\347\273\206\346\217\217\350\277\260\357\274\232", Q_NULLPTR));
+        label_3->setText(QApplication::translate("MainWindow", "\351\207\215\350\246\201\346\200\247\357\274\232", Q_NULLPTR));
+        label_4->setText(QApplication::translate("MainWindow", "\345\274\200\345\247\213\346\227\266\351\227\264\357\274\232", Q_NULLPTR));
+        label_5->setText(QApplication::translate("MainWindow", "\347\273\223\346\235\237\346\227\266\351\227\264\357\274\232", Q_NULLPTR));
+        ok->setText(QApplication::translate("MainWindow", "\347\241\256\350\256\244", Q_NULLPTR));
+        cansle->setText(QApplication::translate("MainWindow", "\345\217\226\346\266\210", Q_NULLPTR));
+        toolBox->setItemText(toolBox->indexOf(page_4), QApplication::translate("MainWindow", "\346\267\273\345\212\240", Q_NULLPTR));
+        menu->setTitle(QApplication::translate("MainWindow", "\347\256\241\347\220\206", Q_NULLPTR));
+>>>>>>> 80ad0b35cc929d6e5336d6f0a55bed3e8819c61f
     } // retranslateUi
 
 };

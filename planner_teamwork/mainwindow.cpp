@@ -7,6 +7,12 @@
 #include<QSqlQuery>
 #include<QDateTimeEdit>
 #include<QTableView>
+#include<QHeaderView>
+#include<QDebug>
+#include<QDialog>
+#include<QLabel>
+#include<QTextEdit>
+#include<QSqlRecord>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -20,9 +26,10 @@ MainWindow::MainWindow(QWidget *parent) :
 
     intitData();//设置重要性下拉菜单
 
-    //ui->tableView->setEditTriggers(QAbstractItemView::NoEditTriggers);
-
-    connect(ui->tableView,&table::releaseSign,this,&MainWindow::showText);
+  
+    connect(ui->tableView,&table::releaseSign,this,&MainWindow::wetherComplit);  //设置右键点击显示对话框
+    connect(ui->tableView_2,&table::releaseSign,this,&MainWindow::complited);    //同上
+   
     connect(&m_start,&startui::login_start,[=](){//测试初始登录界面
         m_login.show();
     });
@@ -54,25 +61,61 @@ MainWindow::~MainWindow()
 {
     delete ui;
 }
-void MainWindow::showText(int i){
+void MainWindow::wetherComplit(int i){  //未完成界面对话框，确定时将第i行的complit值改成yes
 
-    QWidget *dlg=new QWidget(this);
-    //dlg->setAttribute(Qt::WA_DeleteOnClose);
-    dlg->setMinimumSize(500,500);
+//    QWidget *dlg=new QWidget(this);
+//    //dlg->setAttribute(Qt::WA_DeleteOnClose);
+//    dlg->setMinimumSize(500,500);
 //    QLabel lable(dlg);
 //    lable.setText("hello");
 //    lable.show();
 
 //    QTextEdit edit(dlg);
-    dlg->show();
-    //qDebug()<<i<<i;
-}
-void MainWindow::on_actiona_triggered()
-{
-    ui->stackedWidget->setCurrentWidget(ui->task);
+//    dlg->show();
+//    //qDebug()<<i<<i;
+
+//    QSqlTableModel *model3=new QSqlTableModel(this);
+//    model3->setTable("tasks");
+
+
+    int a=QMessageBox::question(this,"完成","是否完成此项？",
+                                QMessageBox::Yes,QMessageBox::No);
+    if(a==QMessageBox::Yes){
+        QSqlRecord record = model->record(i);
+        record.setValue("complit","yes");
+        model->setRecord(i,record);
+
+        model->database().transaction();
+        model->submitAll();
+        //qDebug()<<i;
+        //connectDB();
+        model->database().commit();
+        setModel();
+    }
 }
 
-void MainWindow::on_actionb_triggered()
+
+//完成界面对话框，确定时将第i行的complit值改成no
+void MainWindow::complited(int i){
+    int a=QMessageBox::question(this,"未完成","此项还未完成？",
+                                QMessageBox::Yes,QMessageBox::No);
+    if(a==QMessageBox::Yes){
+        QSqlRecord record = model2->record(i);
+        record.setValue("complit","no");
+        model2->setRecord(i,record);
+        model2->database().transaction();
+        model2->submitAll();
+        model2->database().commit();
+        setModel();
+    }
+}
+void MainWindow::on_actiona_triggered()   //学习任务界面
+{
+    ui->stackedWidget->setCurrentWidget(ui->task);
+    ui->toolBox->setCurrentWidget(ui->page_3);
+}
+
+void MainWindow::on_actionb_triggered()   //统计界面（未完成）
 {
     ui->stackedWidget->setCurrentWidget(ui->calc);
 }
@@ -90,6 +133,7 @@ void MainWindow::connectUSER(){
     sql.exec("create table users(username text not null,password text not null)");
     sql.exec("insert into users values ('admin','12345')");
 }
+//打开数据库
 void MainWindow::connectDB(){
     db=QSqlDatabase::addDatabase("QSQLITE");
     db.setDatabaseName("test.db");
@@ -104,12 +148,8 @@ void MainWindow::connectDB(){
     }
 
     QSqlQuery sql(db);
-    sql.exec("create table tasks(任务,重要性,开始时间,结束时间,详情)");
-    model=new QSqlTableModel(this);
-    model->setTable("tasks");
-    ui->tableView->setModel(model);
-    //model->removeColumn(3);
-    model->select();
+    sql.exec("create table tasks(任务,重要性,开始时间,结束时间,详情,complit)");
+    setModel();
 }
 void MainWindow::setInportance(){    //设置重要性表单
     QSqlQuery sql(db);
@@ -120,7 +160,7 @@ void MainWindow::setInportance(){    //设置重要性表单
     sql.exec("insert into inportance values (\"D\")");
 }
 
-void MainWindow::intitData(){
+void MainWindow::intitData(){//设置下拉框
     QSqlQueryModel *queryModel=new QSqlQueryModel(this);
     queryModel->setQuery("select inportance from inportance");
     ui->comboBox->setModel(queryModel);
@@ -146,11 +186,33 @@ void MainWindow::on_ok_clicked()
 
     }
 }
+//将数据库显示到tableView中
+void MainWindow::setModel(){
+    model=new QSqlTableModel(this);
+    model2=new QSqlTableModel(this);
+    model->setTable("tasks");
+    model2->setTable("tasks");
+
+//    model->removeColumn(5);
+//    model2->removeColumn(5);
 
 
+    model->setFilter("complit='no'");
+    model->select();
+    ui->tableView->setModel(model);
+
+
+    model2->setFilter("complit='yes'");
+    model2->select();
+    ui->tableView_2->setModel(model2);
+}
+
+
+//添加任务界面取消按钮
 void MainWindow::on_cansle_clicked()
 {
     ui->lineEdit->clear();
+    ui->textEdit->clear();
     /*添加时间等清除操作*/
 }
 
@@ -158,6 +220,7 @@ void MainWindow::on_cansle_clicked()
 //    int curRow = ui->tableView->currentIndex().row();
 //    qDebug()<<curRow;
 //}
+
 QString MainWindow::m_logincheck()
 {
 
@@ -222,4 +285,5 @@ bool MainWindow::QueryUserData_1()//遍历查询
     }
     return false;
 }
+
 
