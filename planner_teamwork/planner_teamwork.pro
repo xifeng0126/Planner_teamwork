@@ -20,14 +20,16 @@ SOURCES += main.cpp\
     login.cpp \
     startui.cpp \
     signup.cpp \
-    table.cpp
+    table.cpp \
+    mytableview.cpp
 
 HEADERS  += mainwindow.h \
     sql.h \
     login.h \
     startui.h \
     signup.h \
-    table.h
+    table.h \
+    mytableview.h
 
 FORMS    += mainwindow.ui \
     login.ui \
