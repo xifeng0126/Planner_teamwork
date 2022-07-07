@@ -21,7 +21,7 @@ SOURCES += main.cpp\
     startui.cpp \
     signup.cpp \
     table.cpp \
-    mytableview.cpp
+    textwidget.cpp
 
 HEADERS  += mainwindow.h \
     sql.h \
@@ -29,10 +29,11 @@ HEADERS  += mainwindow.h \
     startui.h \
     signup.h \
     table.h \
-    mytableview.h
+    textwidget.h
 
 FORMS    += mainwindow.ui \
     login.ui \
     startui.ui \
-    signup.ui
+    signup.ui \
+    textwidget.ui
 

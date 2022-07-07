@@ -158,7 +158,6 @@ Makefile: ../planner_teamwork/planner_teamwork.pro D:/Qt/Qt5.4.0/5.4/mingw491_32
 		D:/Qt/Qt5.4.0/5.4/mingw491_32/mkspecs/features/win32/qt_config.prf \
 		D:/Qt/Qt5.4.0/5.4/mingw491_32/mkspecs/win32-g++/qmake.conf \
 		D:/Qt/Qt5.4.0/5.4/mingw491_32/mkspecs/features/spec_post.prf \
-		.qmake.stash \
 		D:/Qt/Qt5.4.0/5.4/mingw491_32/mkspecs/features/exclusive_builds.prf \
 		D:/Qt/Qt5.4.0/5.4/mingw491_32/mkspecs/features/default_pre.prf \
 		D:/Qt/Qt5.4.0/5.4/mingw491_32/mkspecs/features/win32/default_pre.prf \
@@ -286,7 +285,6 @@ D:\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\features\qt_config.prf:
 D:\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\features\win32\qt_config.prf:
 D:\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\win32-g++\qmake.conf:
 D:\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\features\spec_post.prf:
-.qmake.stash:
 D:\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\features\exclusive_builds.prf:
 D:\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\features\default_pre.prf:
 D:\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\features\win32\default_pre.prf:

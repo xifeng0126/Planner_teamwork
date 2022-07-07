@@ -11,9 +11,9 @@ public:
     explicit table(QWidget *parent = nullptr);
 protected:
     void mouseReleaseEvent(QMouseEvent *event) override;
-    void sentSign(int);
+    void sentSign(int,bool);
 signals:
-    void releaseSign(int);
+    void releaseSign(int,bool);
 };
 
 #endif // TABLE_H

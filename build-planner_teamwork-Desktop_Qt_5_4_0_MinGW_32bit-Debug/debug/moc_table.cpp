@@ -52,10 +52,10 @@ static const uint qt_meta_data_table[] = {
        1,       // signalCount
 
  // signals: name, argc, parameters, tag, flags
-       1,    1,   19,    2, 0x06 /* Public */,
+       1,    2,   19,    2, 0x06 /* Public */,
 
  // signals: parameters
-    QMetaType::Void, QMetaType::Int,    2,
+    QMetaType::Void, QMetaType::Int, QMetaType::Bool,    2,    2,
 
        0        // eod
 };
@@ -65,14 +65,14 @@ void table::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void 
     if (_c == QMetaObject::InvokeMetaMethod) {
         table *_t = static_cast<table *>(_o);
         switch (_id) {
-        case 0: _t->releaseSign((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 0: _t->releaseSign((*reinterpret_cast< int(*)>(_a[1])),(*reinterpret_cast< bool(*)>(_a[2]))); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
         int *result = reinterpret_cast<int *>(_a[0]);
         void **func = reinterpret_cast<void **>(_a[1]);
         {
-            typedef void (table::*_t)(int );
+            typedef void (table::*_t)(int , bool );
             if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&table::releaseSign)) {
                 *result = 0;
             }
@@ -117,9 +117,9 @@ int table::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 }
 
 // SIGNAL 0
-void table::releaseSign(int _t1)
+void table::releaseSign(int _t1, bool _t2)
 {
-    void *_a[] = { Q_NULLPTR, const_cast<void*>(reinterpret_cast<const void*>(&_t1)) };
+    void *_a[] = { Q_NULLPTR, const_cast<void*>(reinterpret_cast<const void*>(&_t1)), const_cast<void*>(reinterpret_cast<const void*>(&_t2)) };
     QMetaObject::activate(this, &staticMetaObject, 0, _a);
 }
 QT_END_MOC_NAMESPACE

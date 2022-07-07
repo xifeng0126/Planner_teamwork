@@ -34,15 +34,15 @@ QT_MOC_LITERAL(1, 11, 8), // "appStart"
 QT_MOC_LITERAL(2, 20, 0), // ""
 QT_MOC_LITERAL(3, 21, 20), // "on_actiona_triggered"
 QT_MOC_LITERAL(4, 42, 20), // "on_actionb_triggered"
-QT_MOC_LITERAL(5, 63, 17), // "on_cansle_clicked"
-QT_MOC_LITERAL(6, 81, 13), // "on_ok_clicked"
+QT_MOC_LITERAL(5, 63, 13), // "on_ok_clicked"
+QT_MOC_LITERAL(6, 77, 17), // "on_cansle_clicked"
 QT_MOC_LITERAL(7, 95, 15), // "QueryUserData_1"
 QT_MOC_LITERAL(8, 111, 15) // "QueryUserData_2"
 
     },
     "MainWindow\0appStart\0\0on_actiona_triggered\0"
-    "on_actionb_triggered\0on_cansle_clicked\0"
-    "on_ok_clicked\0QueryUserData_1\0"
+    "on_actionb_triggered\0on_ok_clicked\0"
+    "on_cansle_clicked\0QueryUserData_1\0"
     "QueryUserData_2"
 };
 #undef QT_MOC_LITERAL
@@ -64,12 +64,12 @@ static const uint qt_meta_data_MainWindow[] = {
        1,    0,   49,    2, 0x06 /* Public */,
 
  // slots: name, argc, parameters, tag, flags
-       3,    0,   50,    2, 0x0a /* Public */,
-       4,    0,   51,    2, 0x0a /* Public */,
-       5,    0,   52,    2, 0x0a /* Public */,
-       6,    0,   53,    2, 0x0a /* Public */,
-       7,    0,   54,    2, 0x0a /* Public */,
-       8,    0,   55,    2, 0x0a /* Public */,
+       3,    0,   50,    2, 0x08 /* Private */,
+       4,    0,   51,    2, 0x08 /* Private */,
+       5,    0,   52,    2, 0x08 /* Private */,
+       6,    0,   53,    2, 0x08 /* Private */,
+       7,    0,   54,    2, 0x08 /* Private */,
+       8,    0,   55,    2, 0x08 /* Private */,
 
  // signals: parameters
     QMetaType::Void,
@@ -93,8 +93,8 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 0: _t->appStart(); break;
         case 1: _t->on_actiona_triggered(); break;
         case 2: _t->on_actionb_triggered(); break;
-        case 3: _t->on_cansle_clicked(); break;
-        case 4: _t->on_ok_clicked(); break;
+        case 3: _t->on_ok_clicked(); break;
+        case 4: _t->on_cansle_clicked(); break;
         case 5: { bool _r = _t->QueryUserData_1();
             if (_a[0]) *reinterpret_cast< bool*>(_a[0]) = _r; }  break;
         case 6: { bool _r = _t->QueryUserData_2();
