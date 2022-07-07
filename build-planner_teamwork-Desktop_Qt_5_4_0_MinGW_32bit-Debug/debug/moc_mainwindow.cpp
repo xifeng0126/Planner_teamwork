@@ -34,16 +34,16 @@ QT_MOC_LITERAL(1, 11, 8), // "appStart"
 QT_MOC_LITERAL(2, 20, 0), // ""
 QT_MOC_LITERAL(3, 21, 20), // "on_actiona_triggered"
 QT_MOC_LITERAL(4, 42, 20), // "on_actionb_triggered"
-QT_MOC_LITERAL(5, 63, 13), // "on_ok_clicked"
-QT_MOC_LITERAL(6, 77, 15), // "QueryUserData_1"
-QT_MOC_LITERAL(7, 93, 15), // "QueryUserData_2"
-QT_MOC_LITERAL(8, 109, 17) // "on_cansle_clicked"
+QT_MOC_LITERAL(5, 63, 17), // "on_cansle_clicked"
+QT_MOC_LITERAL(6, 81, 13), // "on_ok_clicked"
+QT_MOC_LITERAL(7, 95, 15), // "QueryUserData_1"
+QT_MOC_LITERAL(8, 111, 15) // "QueryUserData_2"
 
     },
     "MainWindow\0appStart\0\0on_actiona_triggered\0"
-    "on_actionb_triggered\0on_ok_clicked\0"
-    "QueryUserData_1\0QueryUserData_2\0"
-    "on_cansle_clicked"
+    "on_actionb_triggered\0on_cansle_clicked\0"
+    "on_ok_clicked\0QueryUserData_1\0"
+    "QueryUserData_2"
 };
 #undef QT_MOC_LITERAL
 
@@ -78,9 +78,9 @@ static const uint qt_meta_data_MainWindow[] = {
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
-    QMetaType::Bool,
-    QMetaType::Bool,
     QMetaType::Void,
+    QMetaType::Bool,
+    QMetaType::Bool,
 
        0        // eod
 };
@@ -93,12 +93,12 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 0: _t->appStart(); break;
         case 1: _t->on_actiona_triggered(); break;
         case 2: _t->on_actionb_triggered(); break;
-        case 3: _t->on_ok_clicked(); break;
-        case 4: { bool _r = _t->QueryUserData_1();
+        case 3: _t->on_cansle_clicked(); break;
+        case 4: _t->on_ok_clicked(); break;
+        case 5: { bool _r = _t->QueryUserData_1();
             if (_a[0]) *reinterpret_cast< bool*>(_a[0]) = _r; }  break;
-        case 5: { bool _r = _t->QueryUserData_2();
+        case 6: { bool _r = _t->QueryUserData_2();
             if (_a[0]) *reinterpret_cast< bool*>(_a[0]) = _r; }  break;
-        case 6: _t->on_cansle_clicked(); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {

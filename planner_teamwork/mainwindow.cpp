@@ -1,4 +1,4 @@
-#include "mainwindow.h"
+﻿#include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include<QMessageBox>
 #include<QSqlError>
@@ -36,16 +36,13 @@ MainWindow::MainWindow(QWidget *parent) :
         m_sign.show();
     });
     connect(&m_login,&login::checkStart,[=](){
-        table_name =  m_logincheck();
+        user_name =  m_logincheck();
     });
     connect(&m_sign,&signup::checkStart,[=](){
-        table_name = m_signcheck();
+        user_name = m_signcheck();
     });
     connect(this,&MainWindow::appStart,[=](){
         m_sign.close();
-        show();
-    });
-    connect(this,&MainWindow::appStart,[=](){
         m_login.close();
         show();
     });
@@ -129,8 +126,11 @@ void MainWindow::connectUSER(){
     }
 
     QSqlQuery sql(system_db);
-    sql.exec("create table users(username text not null,password text not null)");
+
+    if(sql.exec("create table users(username text not null,password text not null)")){
     sql.exec("insert into users values ('admin','12345')");
+    qDebug()<<"insert !";
+    }
 }
 //打开数据库
 void MainWindow::connectDB(){
@@ -223,8 +223,11 @@ void MainWindow::on_cansle_clicked()
 QString MainWindow::m_logincheck()
 {
 
-if(QueryUserData_1())
-    return login::user;
+if(QueryUserData_1()){
+
+    appStart();
+    return m_login.user;
+}
 else{
      QMessageBox::warning(&m_login,"错误","账号或密码错误");
      return NULL;
@@ -233,7 +236,11 @@ else{
 QString  MainWindow::m_signcheck(){
 if(QueryUserData_2()){
     QSqlQuery sql(system_db);
-    sql.exec("insert into users values ("+m_sign.user+","+m_sign.pass+")");
+    sql.prepare("insert into users (username,password) values (:username,:password)");
+    sql.bindValue(":username",m_sign.user);
+    sql.bindValue(":password",m_sign.pass);
+    sql.exec();
+    qDebug()<<sql.lastError();
     return m_sign.user;
 }
 else{
@@ -241,7 +248,7 @@ else{
      return NULL;
    }
 }
-bool MainWindow::QueryUserData_2(){
+bool MainWindow::QueryUserData_2(){//注册检查
     QSqlQuery sql_query(system_db);
     if(!sql_query.exec("select username from users"))
     {
@@ -263,7 +270,7 @@ bool MainWindow::QueryUserData_2(){
         return true;
     }
 }
-bool MainWindow::QueryUserData_1()//遍历查询
+bool MainWindow::QueryUserData_1()//登录检测
 {
     QSqlQuery sql_query(system_db);
     if(!sql_query.exec("select username,password from users"))
@@ -277,7 +284,6 @@ bool MainWindow::QueryUserData_1()//遍历查询
             QString username = sql_query.value(0).toString();
             QString password = sql_query.value(1).toString();
             if(m_login.check(username,password))
-                appStart();
                 return true;
             qDebug()<<QString("username:%1    password:%2").arg(username).arg(password);
         }
