@@ -1,5 +1,4 @@
-
-﻿#ifndef SQL_H
+#ifndef SQL_H
 #define SQL_H
 #include<QSqlDatabase>
 #include<QSqlError>

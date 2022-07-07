@@ -1,5 +1,4 @@
-
-﻿#include "login.h"
+#include "login.h"
 #include "ui_login.h"
 #include<QDialog>
 #include<QMessageBox>

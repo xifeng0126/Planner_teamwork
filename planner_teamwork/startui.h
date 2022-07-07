@@ -1,5 +1,4 @@
-
-﻿#ifndef STARTUI_H
+#ifndef STARTUI_H
 #define STARTUI_H
 
 #include <QWidget>

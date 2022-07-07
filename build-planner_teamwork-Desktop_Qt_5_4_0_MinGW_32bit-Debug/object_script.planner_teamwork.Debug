@@ -5,8 +5,12 @@ INPUT(
 ./debug\login.o
 ./debug\startui.o
 ./debug\signup.o
+./debug\table.o
+./debug\mytableview.o
 ./debug\moc_mainwindow.o
 ./debug\moc_login.o
 ./debug\moc_startui.o
 ./debug\moc_signup.o
+./debug\moc_table.o
+./debug\moc_mytableview.o
 );

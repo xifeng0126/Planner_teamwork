@@ -1,5 +1,4 @@
-
-﻿#ifndef SIGNUP_H
+#ifndef SIGNUP_H
 #define SIGNUP_H
 
 #include<QWidget>

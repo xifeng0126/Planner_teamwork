@@ -1,5 +1,4 @@
-
-﻿#ifndef login_H
+#ifndef login_H
 #define login_H
 
 #include<QWidget>
