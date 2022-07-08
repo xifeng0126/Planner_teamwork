@@ -24,9 +24,9 @@ SOURCES += main.cpp\
     startui.cpp \
     signup.cpp \
     table.cpp \
+    qcustomplot.cpp\
     textwidget.cpp
-    mytableview.cpp\
-    qcustomplot.cpp
+
 
 HEADERS  += mainwindow.h \
     sql.h \
@@ -34,14 +34,13 @@ HEADERS  += mainwindow.h \
     startui.h \
     signup.h \
     table.h \
+    qcustomplot.h\
     textwidget.h
-    mytableview.h\
-    qcustomplot.h
+
 
 FORMS    += mainwindow.ui \
     login.ui \
     startui.ui \
     signup.ui \
     textwidget.ui
-
 

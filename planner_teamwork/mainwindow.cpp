@@ -1,5 +1,4 @@
-#include "mainwindow.h"
-#include "ui_mainwindow.h"
+﻿#include "mainwindow.h"
 #include"textwidget.h"
 #include<QWidget>
 #include<QApplication>
@@ -19,9 +18,11 @@
 #include <QtCharts/QChartView>
 #include <QtCharts/QLineSeries>
 #include <QtCharts>
+
 QT_CHARTS_USE_NAMESPACE
 
 
+#include "ui_mainwindow.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -54,13 +55,12 @@ MainWindow::MainWindow(QWidget *parent) :
     this->setMinimumSize(1000,600);
     on_actiona_triggered();
 
-    connectDB();//打开数据库
+    connectDB(user_name);//打开数据库
 
     intitData();//设置重要性下拉菜单
 
-  
-    connect(ui->tableView,&table::releaseSign,this,&MainWindow::wetherComplit);  //设置右键点击显示对话框
-    connect(ui->tableView_2,&table::releaseSign,this,&MainWindow::complited);    //同上
+    connect(ui->tableView,&table::releaseSign,this,&MainWindow::wetherComplete);  //设置右键点击显示对话框
+    connect(ui->tableView_2,&table::releaseSign,this,&MainWindow::completed);    //同上
     connect(&m_start,&startui::login_start,[=](){//测试初始登录界面
         m_login.show();
     });
@@ -217,56 +217,6 @@ void MainWindow::createpieSewies()
     //ui->gridLayout->addWidget(chartView);
 }
 
-
-
-void MainWindow::wetherComplit(int i){  //未完成界面对话框，确定时将第i行的complit值改成yes
-
-//    QWidget *dlg=new QWidget(this);
-//    //dlg->setAttribute(Qt::WA_DeleteOnClose);
-//    dlg->setMinimumSize(500,500);
-//    QLabel lable(dlg);
-//    lable.setText("hello");
-//    lable.show();
-
-//    QTextEdit edit(dlg);
-//    dlg->show();
-//    //qDebug()<<i<<i;
-
-//    QSqlTableModel *model3=new QSqlTableModel(this);
-//    model3->setTable("tasks");
-
-
-    int a=QMessageBox::question(this,"完成","是否完成此项？",
-                                QMessageBox::Yes,QMessageBox::No);
-    if(a==QMessageBox::Yes){
-        QSqlRecord record = model->record(i);
-        record.setValue("complit","yes");
-        model->setRecord(i,record);
-
-        model->database().transaction();
-        model->submitAll();
-        //qDebug()<<i;
-        //connectDB();
-        model->database().commit();
-        setModel();
-    }
-}
-
-
-//完成界面对话框，确定时将第i行的complit值改成no
-void MainWindow::complited(int i){
-    int a=QMessageBox::question(this,"未完成","此项还未完成？",
-                                QMessageBox::Yes,QMessageBox::No);
-    if(a==QMessageBox::Yes){
-        QSqlRecord record = model2->record(i);
-        record.setValue("complit","no");
-        model2->setRecord(i,record);
-        model2->database().transaction();
-        model2->submitAll();
-        model2->database().commit();
-        setModel();
-    }
-}
 void MainWindow::on_actiona_triggered()   //学习任务界面
 {
     ui->stackedWidget->setCurrentWidget(ui->task);

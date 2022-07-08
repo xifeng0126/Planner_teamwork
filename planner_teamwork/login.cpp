@@ -1,4 +1,4 @@
-#include "login.h"
+﻿#include "login.h"
 #include "ui_login.h"
 #include<QDialog>
 #include<QMessageBox>
@@ -20,7 +20,7 @@ login::login(QWidget *parent) :
     });
     connect(ui->exitOut,&QPushButton::clicked,[=](){
         m_box->setWindowFlags(Qt::Dialog);
-        connect(m_box,&QMessageBox::buttonClicked,this,login::buttonClicked);
+        connect(m_box,&QMessageBox::buttonClicked,this,&login::buttonClicked);
         m_box->exec();
     });
 }
