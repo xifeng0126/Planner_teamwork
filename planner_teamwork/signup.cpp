@@ -14,13 +14,16 @@ signup::signup(QWidget *parent) :
     yesbtn = m_box->addButton("yes", QMessageBox::AcceptRole);
      nobtn = m_box->addButton("no", QMessageBox::RejectRole);
     connect(ui->signIn,&QPushButton::clicked,[=](){
-        user = ui->userName->text();
-        pass = ui->passWord->text();
+    user = ui->userName->text();
+    pass = ui->passWord->text();
+    if(user!=NULL&&pass!=NULL){       
         checkStart();
+    }
+
     });
     connect(ui->exitOut,&QPushButton::clicked,[=](){
         m_box->setWindowFlags(Qt::Dialog);
-        connect(m_box,&QMessageBox::buttonClicked,this,signup::buttonClicked);
+        connect(m_box,&QMessageBox::buttonClicked,this,&signup::buttonClicked);
         m_box->exec();
     });
 }
