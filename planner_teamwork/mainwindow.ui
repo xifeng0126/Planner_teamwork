@@ -86,7 +86,7 @@
         <item row="1" column="0" colspan="3">
          <widget class="QToolBox" name="toolBox">
           <property name="currentIndex">
-           <number>0</number>
+           <number>2</number>
           </property>
           <widget class="QWidget" name="page_3">
            <property name="geometry">
@@ -94,7 +94,7 @@
              <x>0</x>
              <y>0</y>
              <width>510</width>
-             <height>327</height>
+             <height>325</height>
             </rect>
            </property>
            <attribute name="label">
@@ -126,7 +126,7 @@
              <x>0</x>
              <y>0</y>
              <width>510</width>
-             <height>327</height>
+             <height>325</height>
             </rect>
            </property>
            <attribute name="label">
@@ -144,7 +144,7 @@
              <x>0</x>
              <y>0</y>
              <width>510</width>
-             <height>327</height>
+             <height>325</height>
             </rect>
            </property>
            <attribute name="label">
@@ -303,7 +303,7 @@
      <x>0</x>
      <y>0</y>
      <width>546</width>
-     <height>21</height>
+     <height>23</height>
     </rect>
    </property>
    <widget class="QMenu" name="menu">
@@ -313,7 +313,14 @@
     <addaction name="actiona"/>
     <addaction name="actionb"/>
    </widget>
+   <widget class="QMenu" name="menu_2">
+    <property name="title">
+     <string>工具</string>
+    </property>
+    <addaction name="actionTimer"/>
+   </widget>
    <addaction name="menu"/>
+   <addaction name="menu_2"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
   <action name="actiona">
@@ -324,6 +331,11 @@
   <action name="actionb">
    <property name="text">
     <string>calc</string>
+   </property>
+  </action>
+  <action name="actionTimer">
+   <property name="text">
+    <string>Timer</string>
    </property>
   </action>
  </widget>

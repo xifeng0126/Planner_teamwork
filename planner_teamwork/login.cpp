@@ -20,8 +20,12 @@ login::login(QWidget *parent) :
     });
     connect(ui->exitOut,&QPushButton::clicked,[=](){
         m_box->setWindowFlags(Qt::Dialog);
-        connect(m_box,&QMessageBox::buttonClicked,this,login::buttonClicked);
+        connect(m_box,&QMessageBox::buttonClicked,this,&login::buttonClicked);
         m_box->exec();
+    });
+    connect(ui->GoSignUp,&QPushButton::clicked,[=](){
+        returnToSignUp();
+        this->close();
     });
 }
 bool login::check(QString username,QString password){
@@ -46,4 +50,3 @@ login::~login()
 {
     delete ui;
 }
-

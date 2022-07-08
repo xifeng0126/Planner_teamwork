@@ -26,6 +26,10 @@ signup::signup(QWidget *parent) :
         connect(m_box,&QMessageBox::buttonClicked,this,&signup::buttonClicked);
         m_box->exec();
     });
+    connect(ui->goToLogIn,&QPushButton::clicked,[=](){
+        returnTologIn();
+        this->close();
+    });
 }
 bool signup::check(QString username){
 
@@ -47,4 +51,3 @@ signup::~signup()
 {
     delete ui;
 }
-
