@@ -354,7 +354,7 @@ void MainWindow::setProgress(double a, double b){
 //    ui->progressBar->setMaximum(0);
 
     double percent=b/(a+b);
-//    ui->progressBar->setValue(percent*100);
+    ui->progressBar->setValue(percent*100);
 }
 
 void MainWindow::connectUSER(){
