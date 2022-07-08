@@ -47,9 +47,15 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(&m_start,&startui::sign_start,[=](){
         m_sign.show();
     });
+    connect(&m_login,&login::returnToSignUp,[=](){
+        m_sign.show();
+    });
     connect(&m_login,&login::checkStart,[=](){
         user_name =  m_logincheck();
         connectDB(user_name);
+    });
+    connect(&m_sign,&signup::returnTologIn,[=](){
+        m_login.show();
     });
     connect(&m_sign,&signup::checkStart,[=](){
         user_name = m_signcheck();
@@ -340,6 +346,7 @@ bool MainWindow::QueryUserData_2(){//注册检查
         return true;
     }
 }
+
 bool MainWindow::QueryUserData_1()//登录检测
 {
     QSqlQuery sql_query(system_db);

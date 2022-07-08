@@ -6,6 +6,7 @@
 #include<QMessageBox>
 #include<QPushButton>
 #include<QAbstractButton>
+
 namespace Ui {
 class login;
 }
@@ -24,6 +25,8 @@ public:
 signals:
     void checkStart();
     void appStart();
+    void returnToSignUp();
+    void on_signUp_clicked();
 public slots:
     bool check(QString,QString);//查询账户，待完善
     void buttonClicked(QAbstractButton *btn);

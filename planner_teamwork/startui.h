@@ -29,6 +29,7 @@ private:
     Ui::startui *ui;
 public slots:
     void buttonClicked(QAbstractButton *btn);
+
 };
 
 #endif // STARTUI_H
