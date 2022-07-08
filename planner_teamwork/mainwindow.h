@@ -1,14 +1,14 @@
-﻿#ifndef MAINWINDOW_H
+#ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
 #include <QMainWindow>
 #include<QSqlTableModel>
+#include<QtCharts/QChart>
 #include"table.h"
 #include"textwidget.h"
 #include"login.h"
 #include"startui.h"
 #include"signup.h"
-
 
 namespace Ui {
 class MainWindow;
@@ -20,10 +20,12 @@ class MainWindow : public QMainWindow
 
 public:
     explicit MainWindow(QWidget *parent = 0);
+<<<<<<< HEAD
     ~MainWindow();
     startui m_start;
     signup m_sign;
     login m_login;
+    void createpieSewies();//饼状图初始化函数
     void connectDB(QString);
     void connectUSER();
     void intitData();
@@ -44,21 +46,16 @@ private slots:
     void on_actionb_triggered();
 
     void on_ok_clicked();
-
-    void on_cansle_clicked();
-
     bool QueryUserData_1();//遍历用户名及密码
     bool QueryUserData_2();//只遍历用户名
-
-protected:
-    //void mouseReleaseEvent(QMouseEvent *event) override;
+    void on_cansle_clicked();
 signals:
     void appStart();
+
 private:
     Ui::MainWindow *ui;
     QSqlTableModel *model;
     QSqlTableModel *model2;
-    //QSqlTableModel *model3;
     QSqlDatabase db;
 
     textWidget *tWidget;
@@ -70,7 +67,6 @@ private:
 
     bool flag =true;
 
-    //bool Delete_is_clicked=false;
 };
 
 #endif // MAINWINDOW_H

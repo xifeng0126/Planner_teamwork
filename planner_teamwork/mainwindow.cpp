@@ -16,6 +16,11 @@
 #include<QTextEdit>
 #include<QSqlRecord>
 #include<QModelIndex>
+#include <QtCharts/QChartView>
+#include <QtCharts/QLineSeries>
+#include <QtCharts>
+QT_CHARTS_USE_NAMESPACE
+
 
 
 MainWindow::MainWindow(QWidget *parent) :
@@ -23,24 +28,39 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-//    model=new QSqlTableModel(this);
-//    model->setTable("tasks");
-//    ui->tableView->setModel(model);
-//    model->select();
 
-    this->setMinimumSize(1500,1000);
+    //设置饼状图
+    createpieSewies();
+    //设置QCharts折线图
+    QLineSeries *series = new QLineSeries();
 
+    series->append(0, 6);
+    series->append(2, 4);
+    series->append(3, 8);
+    series->append(7, 4);
+    series->append(10, 5);
+    *series << QPointF(11, 1) << QPointF(13, 3) << QPointF(17, 6) << QPointF(18, 3) << QPointF(20, 2);
+
+    QChart *chart = new QChart();
+    chart->legend()->hide();
+    chart->addSeries(series);
+    chart->createDefaultAxes();
+    chart->setTitle("每日完成任务数：");
+
+    ui->graphicsView->setChart(chart);
+    ui->graphicsView->setRenderHint(QPainter::Antialiasing);
+    //到此为止，qchart折线图初始化完毕
+
+    this->setMinimumSize(1000,600);
     on_actiona_triggered();
 
+    connectDB();//打开数据库
 
+    intitData();//设置重要性下拉菜单
 
-
-
-    //ui->tableView->setEditTriggers(QAbstractItemView::NoEditTriggers);
-
-    connect(ui->tableView,&table::releaseSign,this,&MainWindow::wetherComplete);  //设置右键点击显示对话框
-    connect(ui->tableView_2,&table::releaseSign,this,&MainWindow::completed);    //同上
-
+  
+    connect(ui->tableView,&table::releaseSign,this,&MainWindow::wetherComplit);  //设置右键点击显示对话框
+    connect(ui->tableView_2,&table::releaseSign,this,&MainWindow::complited);    //同上
     connect(&m_start,&startui::login_start,[=](){//测试初始登录界面
         m_login.show();
     });
@@ -68,7 +88,6 @@ MainWindow::MainWindow(QWidget *parent) :
     }
     system_db.open();
     m_start.show();
-
 
 }
 
@@ -142,6 +161,112 @@ void MainWindow::completed(int i,bool b){
 
 }
 
+
+//饼状图的初始化函数
+void MainWindow::createpieSewies()
+{
+    //饼状图
+    QPieSeries * my_pieSeries = new QPieSeries();
+    //中间圆与大圆的比例
+    my_pieSeries->setHoleSize(0.35);
+    //扇形及数据
+    QPieSlice *pieSlice_running = new QPieSlice();
+    pieSlice_running->setValue(25);//扇形占整个圆的百分比
+    pieSlice_running->setLabel("XXX");
+    pieSlice_running->setLabelVisible();
+    pieSlice_running->setColor(QColor("#4cb9cf"));
+    pieSlice_running->setLabelColor(QColor("#4cb9cf"));
+    pieSlice_running->setBorderColor(QColor("#4cb9cf"));
+    pieSlice_running->setBorderColor(QColor());
+    my_pieSeries->append(pieSlice_running);
+
+    QPieSlice *pieSlice_noconnect = new QPieSlice();
+    pieSlice_noconnect->setValue(25);
+    pieSlice_noconnect->setLabel("YYY");
+    pieSlice_noconnect->setColor(QColor("#53b666"));
+    pieSlice_noconnect->setLabelColor(QColor("#53b666"));
+    pieSlice_noconnect->setBorderColor(QColor("#53b666"));
+    pieSlice_noconnect->setLabelVisible();//设置标签可见,缺省不可见
+    my_pieSeries->append(pieSlice_noconnect);
+
+    QPieSlice *pieSlice_idle = new QPieSlice();
+    pieSlice_idle->setValue(50);
+    pieSlice_idle->setLabel("WWW");
+    pieSlice_idle->setLabelVisible();
+    pieSlice_idle->setColor(QColor("#2f89cf"));
+    pieSlice_idle->setLabelColor(QColor("#2f89cf"));
+    pieSlice_idle->setBorderColor(QColor("#2f89cf"));
+    my_pieSeries->append(pieSlice_idle);
+    // 图表视图
+    QChart *chart = new QChart();
+    chart->setTitle("FFFFF");
+    chart->addSeries(my_pieSeries);
+    chart->setAnimationOptions(QChart::SeriesAnimations);
+    chart->legend()->setAlignment(Qt::AlignBottom);
+    chart->legend()->setBackgroundVisible(false);
+    chart->legend()->setFont(QFont("黑体", 8)) ; // 图例字体
+    chart->setTitleBrush(QColor("#808396"));
+    chart->legend()->setLabelColor(QColor("#808396"));
+    QChartView *chartView = new QChartView();
+    chartView = new QChartView(ui->graphicsView_3);
+    chartView->setRenderHint(QPainter::Antialiasing);
+    chartView->setRenderHint(QPainter::NonCosmeticDefaultPen);
+    chartView->setChart(chart);
+    chartView->setMinimumSize(700,300);
+    //这下面原来代码是该改列方式，不注视掉的话会将饼状图初始化在主界面上，不知道为啥
+    //ui->gridLayout->addWidget(chartView);
+}
+
+
+
+void MainWindow::wetherComplit(int i){  //未完成界面对话框，确定时将第i行的complit值改成yes
+
+//    QWidget *dlg=new QWidget(this);
+//    //dlg->setAttribute(Qt::WA_DeleteOnClose);
+//    dlg->setMinimumSize(500,500);
+//    QLabel lable(dlg);
+//    lable.setText("hello");
+//    lable.show();
+
+//    QTextEdit edit(dlg);
+//    dlg->show();
+//    //qDebug()<<i<<i;
+
+//    QSqlTableModel *model3=new QSqlTableModel(this);
+//    model3->setTable("tasks");
+
+
+    int a=QMessageBox::question(this,"完成","是否完成此项？",
+                                QMessageBox::Yes,QMessageBox::No);
+    if(a==QMessageBox::Yes){
+        QSqlRecord record = model->record(i);
+        record.setValue("complit","yes");
+        model->setRecord(i,record);
+
+        model->database().transaction();
+        model->submitAll();
+        //qDebug()<<i;
+        //connectDB();
+        model->database().commit();
+        setModel();
+    }
+}
+
+
+//完成界面对话框，确定时将第i行的complit值改成no
+void MainWindow::complited(int i){
+    int a=QMessageBox::question(this,"未完成","此项还未完成？",
+                                QMessageBox::Yes,QMessageBox::No);
+    if(a==QMessageBox::Yes){
+        QSqlRecord record = model2->record(i);
+        record.setValue("complit","no");
+        model2->setRecord(i,record);
+        model2->database().transaction();
+        model2->submitAll();
+        model2->database().commit();
+        setModel();
+    }
+}
 void MainWindow::on_actiona_triggered()   //学习任务界面
 {
     ui->stackedWidget->setCurrentWidget(ui->task);
@@ -283,7 +408,6 @@ void MainWindow::connectUSER(){
     }
 
     QSqlQuery sql(system_db);
-
     if(sql.exec("create table users(username text not null,password text not null)")){
     sql.exec("insert into users values ('admin','12345')");
     qDebug()<<"insert !";
