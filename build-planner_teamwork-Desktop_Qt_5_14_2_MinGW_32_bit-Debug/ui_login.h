@@ -34,12 +34,14 @@ public:
     QWidget *widget;
     QGridLayout *gridLayout;
     QSpacerItem *horizontalSpacer_4;
+    QLabel *label;
     QSpacerItem *verticalSpacer;
     QLineEdit *userName;
     QLabel *label_2;
-    QLineEdit *passWord;
-    QLabel *label;
     QSpacerItem *horizontalSpacer_5;
+    QLineEdit *passWord;
+    QLabel *label_3;
+    QPushButton *goToSignUp;
 
     void setupUi(QWidget *login)
     {
@@ -90,34 +92,45 @@ public:
 
         gridLayout->addItem(horizontalSpacer_4, 0, 0, 1, 1);
 
-        verticalSpacer = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
-
-        gridLayout->addItem(verticalSpacer, 1, 2, 1, 1);
-
-        userName = new QLineEdit(widget);
-        userName->setObjectName(QString::fromUtf8("userName"));
-
-        gridLayout->addWidget(userName, 0, 2, 1, 1);
-
-        label_2 = new QLabel(widget);
-        label_2->setObjectName(QString::fromUtf8("label_2"));
-
-        gridLayout->addWidget(label_2, 2, 1, 1, 1);
-
-        passWord = new QLineEdit(widget);
-        passWord->setObjectName(QString::fromUtf8("passWord"));
-        passWord->setEchoMode(QLineEdit::Password);
-
-        gridLayout->addWidget(passWord, 2, 2, 1, 1);
-
         label = new QLabel(widget);
         label->setObjectName(QString::fromUtf8("label"));
 
         gridLayout->addWidget(label, 0, 1, 1, 1);
 
+        verticalSpacer = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+        gridLayout->addItem(verticalSpacer, 2, 3, 1, 1);
+
+        userName = new QLineEdit(widget);
+        userName->setObjectName(QString::fromUtf8("userName"));
+
+        gridLayout->addWidget(userName, 0, 3, 1, 1);
+
+        label_2 = new QLabel(widget);
+        label_2->setObjectName(QString::fromUtf8("label_2"));
+
+        gridLayout->addWidget(label_2, 4, 1, 1, 1);
+
         horizontalSpacer_5 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
-        gridLayout->addItem(horizontalSpacer_5, 0, 3, 1, 1);
+        gridLayout->addItem(horizontalSpacer_5, 0, 4, 1, 1);
+
+        passWord = new QLineEdit(widget);
+        passWord->setObjectName(QString::fromUtf8("passWord"));
+        passWord->setEchoMode(QLineEdit::Password);
+
+        gridLayout->addWidget(passWord, 4, 3, 1, 1);
+
+        label_3 = new QLabel(widget);
+        label_3->setObjectName(QString::fromUtf8("label_3"));
+
+        gridLayout->addWidget(label_3, 1, 1, 1, 1);
+
+        goToSignUp = new QPushButton(widget);
+        goToSignUp->setObjectName(QString::fromUtf8("goToSignUp"));
+        goToSignUp->setCheckable(false);
+
+        gridLayout->addWidget(goToSignUp, 1, 3, 1, 1);
 
 
         retranslateUi(login);
@@ -130,8 +143,10 @@ public:
         login->setWindowTitle(QCoreApplication::translate("login", "Form", nullptr));
         signIn->setText(QCoreApplication::translate("login", "\347\231\273\345\275\225", nullptr));
         exitOut->setText(QCoreApplication::translate("login", "\351\200\200\345\207\272", nullptr));
-        label_2->setText(QCoreApplication::translate("login", "\345\257\206\347\240\201\357\274\232", nullptr));
         label->setText(QCoreApplication::translate("login", "\347\224\250\346\210\267\345\220\215\357\274\232", nullptr));
+        label_2->setText(QCoreApplication::translate("login", "\345\257\206\347\240\201\357\274\232", nullptr));
+        label_3->setText(QCoreApplication::translate("login", "\346\262\241\346\234\211\350\264\246\346\210\267\357\274\237", nullptr));
+        goToSignUp->setText(QCoreApplication::translate("login", "\347\202\271\345\207\273\346\263\250\345\206\214", nullptr));
     } // retranslateUi
 
 };
