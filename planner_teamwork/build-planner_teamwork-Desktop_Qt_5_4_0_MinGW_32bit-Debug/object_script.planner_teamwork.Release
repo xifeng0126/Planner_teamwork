@@ -1,0 +1,16 @@
+INPUT(
+./release\main.o
+./release\mainwindow.o
+./release\sql.o
+./release\login.o
+./release\startui.o
+./release\signup.o
+./release\table.o
+./release\mytableview.o
+./release\moc_mainwindow.o
+./release\moc_login.o
+./release\moc_startui.o
+./release\moc_signup.o
+./release\moc_table.o
+./release\moc_mytableview.o
+);

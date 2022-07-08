@@ -53,6 +53,12 @@ public:
     QWidget *page_3;
     QGridLayout *gridLayout_3;
     table *tableView;
+<<<<<<< Updated upstream
+=======
+    QWidget *page;
+    QGridLayout *gridLayout_5;
+    table *tableView_2;
+>>>>>>> Stashed changes
     QWidget *page_4;
     QGridLayout *gridLayout_4;
     QHBoxLayout *horizontalLayout;
@@ -118,7 +124,11 @@ public:
         toolBox->setObjectName(QStringLiteral("toolBox"));
         page_3 = new QWidget();
         page_3->setObjectName(QStringLiteral("page_3"));
+<<<<<<< Updated upstream
         page_3->setGeometry(QRect(0, 0, 503, 252));
+=======
+        page_3->setGeometry(QRect(0, 0, 491, 180));
+>>>>>>> Stashed changes
         gridLayout_3 = new QGridLayout(page_3);
         gridLayout_3->setObjectName(QStringLiteral("gridLayout_3"));
         tableView = new table(page_3);
@@ -127,9 +137,26 @@ public:
         gridLayout_3->addWidget(tableView, 0, 0, 1, 1);
 
         toolBox->addItem(page_3, QString::fromUtf8("\350\256\241\345\210\222"));
+<<<<<<< Updated upstream
         page_4 = new QWidget();
         page_4->setObjectName(QStringLiteral("page_4"));
         page_4->setGeometry(QRect(0, 0, 503, 252));
+=======
+        page = new QWidget();
+        page->setObjectName(QStringLiteral("page"));
+        page->setGeometry(QRect(0, 0, 491, 180));
+        gridLayout_5 = new QGridLayout(page);
+        gridLayout_5->setObjectName(QStringLiteral("gridLayout_5"));
+        tableView_2 = new table(page);
+        tableView_2->setObjectName(QStringLiteral("tableView_2"));
+
+        gridLayout_5->addWidget(tableView_2, 0, 0, 1, 1);
+
+        toolBox->addItem(page, QString::fromUtf8("\345\267\262\345\256\214\346\210\220"));
+        page_4 = new QWidget();
+        page_4->setObjectName(QStringLiteral("page_4"));
+        page_4->setGeometry(QRect(0, 0, 476, 189));
+>>>>>>> Stashed changes
         gridLayout_4 = new QGridLayout(page_4);
         gridLayout_4->setObjectName(QStringLiteral("gridLayout_4"));
         horizontalLayout = new QHBoxLayout();
@@ -240,7 +267,11 @@ public:
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName(QStringLiteral("menubar"));
+<<<<<<< Updated upstream
         menubar->setGeometry(QRect(0, 0, 539, 21));
+=======
+        menubar->setGeometry(QRect(0, 0, 539, 22));
+>>>>>>> Stashed changes
         menu = new QMenu(menubar);
         menu->setObjectName(QStringLiteral("menu"));
         MainWindow->setMenuBar(menubar);
@@ -255,7 +286,11 @@ public:
         retranslateUi(MainWindow);
 
         stackedWidget->setCurrentIndex(1);
+<<<<<<< Updated upstream
         toolBox->setCurrentIndex(0);
+=======
+        toolBox->setCurrentIndex(1);
+>>>>>>> Stashed changes
 
 
         QMetaObject::connectSlotsByName(MainWindow);
@@ -268,6 +303,10 @@ public:
         actionb->setText(QApplication::translate("MainWindow", "calc", Q_NULLPTR));
         label->setText(QApplication::translate("MainWindow", "\345\255\246\344\271\240\344\273\273\345\212\241", Q_NULLPTR));
         toolBox->setItemText(toolBox->indexOf(page_3), QApplication::translate("MainWindow", "\350\256\241\345\210\222", Q_NULLPTR));
+<<<<<<< Updated upstream
+=======
+        toolBox->setItemText(toolBox->indexOf(page), QApplication::translate("MainWindow", "\345\267\262\345\256\214\346\210\220", Q_NULLPTR));
+>>>>>>> Stashed changes
         label_2->setText(QApplication::translate("MainWindow", "\344\273\273\345\212\241\357\274\232", Q_NULLPTR));
         label_6->setText(QApplication::translate("MainWindow", "\350\257\246\347\273\206\346\217\217\350\277\260\357\274\232", Q_NULLPTR));
         label_3->setText(QApplication::translate("MainWindow", "\351\207\215\350\246\201\346\200\247\357\274\232", Q_NULLPTR));
