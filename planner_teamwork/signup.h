@@ -26,6 +26,7 @@ public:
 signals:
     void checkStart();
     void appStart();
+    void goToLogIn();
 public slots:
     void buttonClicked(QAbstractButton *btn);
 

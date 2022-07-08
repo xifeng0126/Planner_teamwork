@@ -61,15 +61,24 @@ MainWindow::MainWindow(QWidget *parent) :
 
     connect(ui->tableView,&table::releaseSign,this,&MainWindow::wetherComplete);  //设置右键点击显示对话框
     connect(ui->tableView_2,&table::releaseSign,this,&MainWindow::completed);    //同上
+
     connect(&m_start,&startui::login_start,[=](){//测试初始登录界面
         m_login.show();
     });
     connect(&m_start,&startui::sign_start,[=](){
         m_sign.show();
     });
+
+    connect(&m_login,&login::goToSignUp,[=](){
+        m_sign.show();
+    });
     connect(&m_login,&login::checkStart,[=](){
         user_name =  m_logincheck();
         connectDB(user_name);
+    });
+
+    connect(&m_sign,&signup::goToLogIn,[=](){
+        m_login.show();
     });
     connect(&m_sign,&signup::checkStart,[=](){
         user_name = m_signcheck();
@@ -345,7 +354,7 @@ void MainWindow::setProgress(double a, double b){
 //    ui->progressBar->setMaximum(0);
 
     double percent=b/(a+b);
-    ui->progressBar->setValue(percent*100);
+//    ui->progressBar->setValue(percent*100);
 }
 
 void MainWindow::connectUSER(){
