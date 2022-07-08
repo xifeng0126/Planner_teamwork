@@ -22,6 +22,7 @@
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenu>
 #include <QtWidgets/QMenuBar>
+#include <QtWidgets/QProgressBar>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QSpacerItem>
 #include <QtWidgets/QStackedWidget>
@@ -61,6 +62,8 @@ public:
     QWidget *page_3;
     QGridLayout *gridLayout_3;
     table *tableView;
+    QLabel *label_8;
+    QProgressBar *progressBar;
     QWidget *page;
     QGridLayout *gridLayout_5;
     table *tableView_2;
@@ -163,18 +166,29 @@ public:
         toolBox->setObjectName(QString::fromUtf8("toolBox"));
         page_3 = new QWidget();
         page_3->setObjectName(QString::fromUtf8("page_3"));
-        page_3->setGeometry(QRect(0, 0, 597, 396));
+        page_3->setGeometry(QRect(0, 0, 648, 388));
         gridLayout_3 = new QGridLayout(page_3);
         gridLayout_3->setObjectName(QString::fromUtf8("gridLayout_3"));
         tableView = new table(page_3);
         tableView->setObjectName(QString::fromUtf8("tableView"));
 
-        gridLayout_3->addWidget(tableView, 0, 0, 1, 1);
+        gridLayout_3->addWidget(tableView, 0, 0, 1, 2);
+
+        label_8 = new QLabel(page_3);
+        label_8->setObjectName(QString::fromUtf8("label_8"));
+
+        gridLayout_3->addWidget(label_8, 1, 0, 1, 1);
+
+        progressBar = new QProgressBar(page_3);
+        progressBar->setObjectName(QString::fromUtf8("progressBar"));
+        progressBar->setValue(24);
+
+        gridLayout_3->addWidget(progressBar, 1, 1, 1, 1);
 
         toolBox->addItem(page_3, QString::fromUtf8("\350\256\241\345\210\222"));
         page = new QWidget();
         page->setObjectName(QString::fromUtf8("page"));
-        page->setGeometry(QRect(0, 0, 597, 396));
+        page->setGeometry(QRect(0, 0, 648, 388));
         gridLayout_5 = new QGridLayout(page);
         gridLayout_5->setObjectName(QString::fromUtf8("gridLayout_5"));
         tableView_2 = new table(page);
@@ -185,7 +199,7 @@ public:
         toolBox->addItem(page, QString::fromUtf8("\345\267\262\345\256\214\346\210\220"));
         page_4 = new QWidget();
         page_4->setObjectName(QString::fromUtf8("page_4"));
-        page_4->setGeometry(QRect(0, 0, 597, 396));
+        page_4->setGeometry(QRect(0, 0, 648, 388));
         gridLayout_4 = new QGridLayout(page_4);
         gridLayout_4->setObjectName(QString::fromUtf8("gridLayout_4"));
         verticalLayout = new QVBoxLayout();
@@ -314,7 +328,7 @@ public:
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName(QString::fromUtf8("menubar"));
-        menubar->setGeometry(QRect(0, 0, 686, 21));
+        menubar->setGeometry(QRect(0, 0, 686, 23));
         menu = new QMenu(menubar);
         menu->setObjectName(QString::fromUtf8("menu"));
         MainWindow->setMenuBar(menubar);
@@ -328,8 +342,8 @@ public:
 
         retranslateUi(MainWindow);
 
-        stackedWidget->setCurrentIndex(0);
-        toolBox->setCurrentIndex(2);
+        stackedWidget->setCurrentIndex(1);
+        toolBox->setCurrentIndex(0);
 
 
         QMetaObject::connectSlotsByName(MainWindow);
@@ -341,6 +355,7 @@ public:
         actiona->setText(QCoreApplication::translate("MainWindow", "task", nullptr));
         actionb->setText(QCoreApplication::translate("MainWindow", "calc", nullptr));
         label->setText(QCoreApplication::translate("MainWindow", "\345\255\246\344\271\240\344\273\273\345\212\241", nullptr));
+        label_8->setText(QCoreApplication::translate("MainWindow", "\344\273\273\345\212\241\350\277\233\345\272\246\357\274\232", nullptr));
         toolBox->setItemText(toolBox->indexOf(page_3), QCoreApplication::translate("MainWindow", "\350\256\241\345\210\222", nullptr));
         toolBox->setItemText(toolBox->indexOf(page), QCoreApplication::translate("MainWindow", "\345\267\262\345\256\214\346\210\220", nullptr));
         label_6->setText(QCoreApplication::translate("MainWindow", "\350\257\246\347\273\206\346\217\217\350\277\260\357\274\232", nullptr));
