@@ -1,53 +1,7 @@
-<<<<<<< Updated upstream
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
-#include <QMainWindow>
-#include<QSqlTableModel>
-#include"table.h"
-
-namespace Ui {
-class MainWindow;
-}
-
-class MainWindow : public QMainWindow
-{
-    Q_OBJECT
-
-public:
-    explicit MainWindow(QWidget *parent = 0);
-    ~MainWindow();
-    void connectDB();
-    void intitData();
-    void setInportance();
-    void wetherComplit(int);
-    void complited(int);
-    void setModel();
-
-private slots:
-    void on_actiona_triggered();
-
-    void on_actionb_triggered();
-
-    void on_ok_clicked();
-
-    void on_cansle_clicked();
-
-protected:
-    //void mouseReleaseEvent(QMouseEvent *event) override;
-private:
-    Ui::MainWindow *ui;
-    QSqlTableModel *model;
-    QSqlTableModel *model2;
-    //QSqlTableModel *model3;
-    QSqlDatabase db;
-};
-
-#endif // MAINWINDOW_H
-=======
-#ifndef MAINWINDOW_H
-#define MAINWINDOW_H
-
+#include<QtCharts/QChart>
 #include <QMainWindow>
 #include<QSqlTableModel>
 #include"sql.h"
@@ -69,6 +23,7 @@ public:
     startui m_start;
     signup m_sign;
     login m_login;
+    void createpieSewies();//饼状图初始化函数
     void connectDB();
     void connectUSER();
     void intitData();
@@ -104,4 +59,3 @@ private:
 #endif // MAINWINDOW_H
 
 
->>>>>>> Stashed changes

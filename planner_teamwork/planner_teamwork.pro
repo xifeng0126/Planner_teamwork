@@ -5,9 +5,12 @@
 #-------------------------------------------------
 
 QT       += core gui\
-             sql
+             sql\
+            charts
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
+greaterThan(QT_MAJOR_VERSION, 4): QT += widgets printsupport
+
 
 TARGET = planner_teamwork
 TEMPLATE = app
@@ -21,7 +24,9 @@ SOURCES += main.cpp\
     startui.cpp \
     signup.cpp \
     table.cpp \
-    mytableview.cpp
+    mytableview.cpp\
+    qcustomplot.cpp
+
 
 HEADERS  += mainwindow.h \
     sql.h \
@@ -29,7 +34,9 @@ HEADERS  += mainwindow.h \
     startui.h \
     signup.h \
     table.h \
-    mytableview.h
+    mytableview.h\
+    qcustomplot.h
+
 
 FORMS    += mainwindow.ui \
     login.ui \

@@ -1,19 +1,3 @@
-<<<<<<< Updated upstream
-#include "signup.h"
-#include "ui_signup.h"
-
-signup::signup(QWidget *parent) :
-    QWidget(parent),
-    ui(new Ui::signup)
-{
-    ui->setupUi(this);
-}
-
-signup::~signup()
-{
-    delete ui;
-}
-=======
 #include "signup.h"
 #include "ui_signup.h"
 #include<QDialog>
@@ -36,7 +20,7 @@ signup::signup(QWidget *parent) :
     });
     connect(ui->exitOut,&QPushButton::clicked,[=](){
         m_box->setWindowFlags(Qt::Dialog);
-        connect(m_box,&QMessageBox::buttonClicked,this,&signup::buttonClicked);
+        connect(m_box,&QMessageBox::buttonClicked,this,signup::buttonClicked);
         m_box->exec();
     });
 }
@@ -61,4 +45,3 @@ signup::~signup()
     delete ui;
 }
 
->>>>>>> Stashed changes
