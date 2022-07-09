@@ -1,9 +1,6 @@
 #include "mainwindow.h"
 #include <QApplication>
-#include <QDateTime>
-#include <QtCharts/QChartView>
-#include <QtCharts/QLineSeries>
-QT_CHARTS_USE_NAMESPACE
+#include<QDateTime>
 
 
 int main(int argc, char *argv[])
@@ -13,4 +10,3 @@ int main(int argc, char *argv[])
     //w.show();
     return a.exec();
 }
-

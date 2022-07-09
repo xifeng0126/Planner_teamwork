@@ -24,10 +24,12 @@ public:
 
 private:
     Ui::textWidget *ui;
-
+signals:
+    void deletSign();
 
 private slots:
     //void on_pushButton_clicked();
+    void on_pushButton_clicked();
 };
 
 #endif // TEXTWIDGET_H

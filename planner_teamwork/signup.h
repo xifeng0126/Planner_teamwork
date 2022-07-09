@@ -1,4 +1,4 @@
-#ifndef SIGNUP_H
+﻿#ifndef SIGNUP_H
 #define SIGNUP_H
 
 #include<QWidget>
@@ -26,7 +26,6 @@ public:
 signals:
     void checkStart();
     void appStart();
-    void goToLogIn();
 public slots:
     void buttonClicked(QAbstractButton *btn);
 

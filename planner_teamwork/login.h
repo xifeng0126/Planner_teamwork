@@ -24,7 +24,6 @@ public:
 signals:
     void checkStart();
     void appStart();
-    void goToSignUp();
 public slots:
     bool check(QString,QString);//查询账户，待完善
     void buttonClicked(QAbstractButton *btn);

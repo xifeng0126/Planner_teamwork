@@ -9,6 +9,7 @@
 #include"login.h"
 #include"startui.h"
 #include"signup.h"
+#include"notewindow.h"
 
 namespace Ui {
 class MainWindow;
@@ -24,8 +25,7 @@ public:
     startui m_start;
     signup m_sign;
     login m_login;
-    void createpieSewies();//饼状图初始化函数
-    void connectDB(QString);
+    void connectDB();
     void connectUSER();
     void intitData();
     void setInportance();
@@ -34,10 +34,15 @@ public:
     void setModel();
     void setProgress(double,double);
     //void closeButton();
+    void createpieSewies();
 
     QString  m_logincheck();//存在则返回用户名，不存在则报错，并返回NULl
-    QString  m_signcheck();//存在报错返回NULL,不存在则报错，并返回NULl
+    QString  m_signcheck();//存在报错返回NULL,不存在则注册
     QString  user_name;
+
+    int UID;
+
+    int this_UID;
 
 private slots:
     void on_actiona_triggered();
@@ -45,17 +50,26 @@ private slots:
     void on_actionb_triggered();
 
     void on_ok_clicked();
+
+    void on_cansle_clicked();
+
     bool QueryUserData_1();//遍历用户名及密码
     bool QueryUserData_2();//只遍历用户名
-    void on_cansle_clicked();
+
+    //static int UID;
+
+protected:
+    //void mouseReleaseEvent(QMouseEvent *event) override;
 signals:
     void appStart();
-
 private:
+
     Ui::MainWindow *ui;
     QSqlTableModel *model;
     QSqlTableModel *model2;
+    //QSqlTableModel *model3;
     QSqlDatabase db;
+    QSqlDatabase dbPublic;
 
     textWidget *tWidget;
 
@@ -66,6 +80,9 @@ private:
 
     bool flag =true;
 
+    noteWindow noteW;
+
+    //bool Delete_is_clicked=false;
 };
 
 #endif // MAINWINDOW_H

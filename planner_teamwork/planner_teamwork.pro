@@ -19,28 +19,29 @@ CONFIG += c++11
 
 SOURCES += main.cpp\
         mainwindow.cpp \
-    sql.cpp \
     login.cpp \
     startui.cpp \
     signup.cpp \
     table.cpp \
     qcustomplot.cpp\
-    textwidget.cpp
+    textwidget.cpp\
+    notewindow.cpp
 
 
 HEADERS  += mainwindow.h \
-    sql.h \
     login.h \
     startui.h \
     signup.h \
     table.h \
     qcustomplot.h\
-    textwidget.h
+    textwidget.h\
+    notewindow.h
 
 
 FORMS    += mainwindow.ui \
     login.ui \
     startui.ui \
     signup.ui \
-    textwidget.ui
+    textwidget.ui\
+    notewindow.ui
 

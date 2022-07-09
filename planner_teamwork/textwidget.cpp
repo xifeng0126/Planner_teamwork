@@ -32,3 +32,8 @@ void textWidget::setText(QString s){
 //{
 
 //}
+
+void textWidget::on_pushButton_clicked()
+{
+    emit deletSign();
+}
