@@ -41,6 +41,7 @@ MainWindow::MainWindow(QWidget *parent) :
     this->setMinimumSize(1500,1000);
 
     on_actiona_triggered();
+    m_calendar.setWindowTitle("Calendar");
 
 
 
@@ -67,10 +68,16 @@ MainWindow::MainWindow(QWidget *parent) :
         //connectDB(user_name);
         connectDB();
     });
+    connect(&m_login,&login::openSignUp,[=](){
+        m_sign.show();
+    });
     connect(&m_sign,&signup::checkStart,[=](){
         user_name = m_signcheck();
         //connectDB(user_name);
         connectDB();
+    });
+    connect(&m_sign,&signup::openLogIn,[=](){
+        m_login.show();
     });
 
     //connectDB(user_name);//打开数据库
@@ -184,6 +191,11 @@ void MainWindow::on_actiona_triggered()   //学习任务界面
 void MainWindow::on_actionb_triggered()   //统计界面（未完成）
 {
     ui->stackedWidget->setCurrentWidget(ui->calc);
+}
+
+void MainWindow::on_actioncalendar_triggered()
+{
+    m_calendar.show();
 }
 
 //打开数据库

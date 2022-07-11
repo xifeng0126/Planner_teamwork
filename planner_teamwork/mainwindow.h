@@ -10,6 +10,7 @@
 #include"startui.h"
 #include"signup.h"
 #include"notewindow.h"
+#include"calendarwidget.h"
 
 namespace Ui {
 class MainWindow;
@@ -25,6 +26,7 @@ public:
     startui m_start;
     signup m_sign;
     login m_login;
+    CalendarWidget m_calendar;
     void connectDB();
     void connectUSER();
     void intitData();
@@ -48,6 +50,8 @@ private slots:
     void on_actiona_triggered();
 
     void on_actionb_triggered();
+
+    void on_actioncalendar_triggered();
 
     void on_ok_clicked();
 

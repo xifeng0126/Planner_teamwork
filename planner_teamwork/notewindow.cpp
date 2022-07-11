@@ -9,6 +9,7 @@ noteWindow::noteWindow(QWidget *parent) :
     ui->setupUi(this);
     db=QSqlDatabase::addDatabase("QSQLITE");
     db.setDatabaseName("system.db");
+    n_calendar.setWindowTitle("Calendar");
 
     db.open();
 
@@ -110,3 +111,8 @@ void noteWindow::on_radioButton_2_toggled(bool checked)
 }
 
 
+
+void noteWindow::on_openCalendar_clicked()
+{
+    n_calendar.show();
+}
