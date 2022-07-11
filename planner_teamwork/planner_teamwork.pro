@@ -18,6 +18,8 @@ TEMPLATE = app
 CONFIG += c++11
 
 SOURCES += main.cpp\
+    calendarwidget.cpp \
+    cwindow.cpp \
         mainwindow.cpp \
     login.cpp \
     startui.cpp \
@@ -29,6 +31,8 @@ SOURCES += main.cpp\
 
 
 HEADERS  += mainwindow.h \
+    calendarwidget.h \
+    cwindow.h \
     login.h \
     startui.h \
     signup.h \
@@ -39,6 +43,7 @@ HEADERS  += mainwindow.h \
 
 
 FORMS    += mainwindow.ui \
+    cwindow.ui \
     login.ui \
     startui.ui \
     signup.ui \

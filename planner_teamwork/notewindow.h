@@ -6,6 +6,7 @@
 #include<QSqlQuery>
 #include<QSqlQueryModel>
 #include<QSqlTableModel>
+#include"calendarwidget.h"
 
 namespace Ui {
 class noteWindow;
@@ -19,7 +20,7 @@ public:
     explicit noteWindow(QWidget *parent = nullptr);
     ~noteWindow();
     void setmodel();
-
+    CalendarWidget n_calendar;
 
     QSqlDatabase db;
     int UID;
@@ -41,6 +42,8 @@ private slots:
     void on_radioButton_2_toggled(bool checked);
 
     void on_cancel_clicked();
+
+    void on_openCalendar_clicked();
 
 signals:
     void tasks();

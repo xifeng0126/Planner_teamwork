@@ -23,6 +23,10 @@ login::login(QWidget *parent) :
         connect(m_box,&QMessageBox::buttonClicked,this,login::buttonClicked);
         m_box->exec();
     });
+    connect(ui->openSignUp,&QPushButton::clicked,[=](){
+        openSignUp();
+        this->close();
+    });
 }
 bool login::check(QString username,QString password){
 
