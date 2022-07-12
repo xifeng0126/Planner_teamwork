@@ -45,7 +45,17 @@
     <item>
      <widget class="QPushButton" name="signIn">
       <property name="text">
-       <string>登录</string>
+       <string/>
+      </property>
+      <property name="icon">
+       <iconset>
+        <normaloff>../resources/9E90D0FDE9C043F6DAE3FFAC3F746C38.png</normaloff>../resources/9E90D0FDE9C043F6DAE3FFAC3F746C38.png</iconset>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>60</width>
+        <height>16</height>
+       </size>
       </property>
      </widget>
     </item>
@@ -68,7 +78,17 @@
     <item>
      <widget class="QPushButton" name="exitOut">
       <property name="text">
-       <string>退出</string>
+       <string/>
+      </property>
+      <property name="icon">
+       <iconset>
+        <normaloff>../resources/232BA6219E241DECDC960184E31063CD.png</normaloff>../resources/232BA6219E241DECDC960184E31063CD.png</iconset>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>60</width>
+        <height>16</height>
+       </size>
       </property>
      </widget>
     </item>
@@ -110,18 +130,12 @@
       </property>
      </widget>
     </item>
-    <item row="0" column="0">
-     <spacer name="horizontalSpacer_4">
-      <property name="orientation">
-       <enum>Qt::Horizontal</enum>
+    <item row="3" column="3">
+     <widget class="QCheckBox" name="passwordSaving">
+      <property name="text">
+       <string>记住密码</string>
       </property>
-      <property name="sizeHint" stdset="0">
-       <size>
-        <width>40</width>
-        <height>20</height>
-       </size>
-      </property>
-     </spacer>
+     </widget>
     </item>
     <item row="2" column="2">
      <spacer name="verticalSpacer">
@@ -143,15 +157,12 @@
       </property>
      </widget>
     </item>
-    <item row="0" column="1">
-     <widget class="QLabel" name="label">
+    <item row="1" column="1">
+     <widget class="QLabel" name="label_3">
       <property name="text">
-       <string>用户名：</string>
+       <string>没有账号？</string>
       </property>
      </widget>
-    </item>
-    <item row="0" column="2">
-     <widget class="QLineEdit" name="userName"/>
     </item>
     <item row="0" column="3">
      <spacer name="horizontalSpacer_5">
@@ -166,17 +177,43 @@
       </property>
      </spacer>
     </item>
+    <item row="0" column="2">
+     <widget class="QLineEdit" name="userName"/>
+    </item>
     <item row="1" column="2">
      <widget class="QPushButton" name="openSignUp">
       <property name="text">
-       <string>点击注册！</string>
+       <string/>
+      </property>
+      <property name="icon">
+       <iconset>
+        <normaloff>../resources/0C05E4AE59C02077D832BA0FE2C810DD.png</normaloff>../resources/0C05E4AE59C02077D832BA0FE2C810DD.png</iconset>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>80</width>
+        <height>16</height>
+       </size>
       </property>
      </widget>
     </item>
-    <item row="1" column="1">
-     <widget class="QLabel" name="label_3">
+    <item row="0" column="0">
+     <spacer name="horizontalSpacer_4">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>40</width>
+        <height>20</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item row="0" column="1">
+     <widget class="QLabel" name="label">
       <property name="text">
-       <string>没有账号？</string>
+       <string>用户名：</string>
       </property>
      </widget>
     </item>

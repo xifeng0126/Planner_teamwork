@@ -13,6 +13,10 @@
   <property name="windowTitle">
    <string>Planner</string>
   </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>res/appicon.png</normaloff>res/appicon.png</iconset>
+  </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QGridLayout" name="gridLayout_2">
     <item row="0" column="0">
@@ -25,14 +29,7 @@
       </widget>
       <widget class="QWidget" name="task">
        <layout class="QGridLayout" name="gridLayout_4">
-        <item row="0" column="1">
-         <widget class="QLabel" name="label">
-          <property name="text">
-           <string>学习任务</string>
-          </property>
-         </widget>
-        </item>
-        <item row="0" column="2">
+        <item row="0" column="3">
          <spacer name="horizontalSpacer_2">
           <property name="orientation">
            <enum>Qt::Horizontal</enum>
@@ -58,10 +55,17 @@
           </property>
          </spacer>
         </item>
-        <item row="1" column="0" colspan="3">
+        <item row="0" column="1">
+         <widget class="QLabel" name="label">
+          <property name="text">
+           <string>学习任务</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="0" colspan="4">
          <widget class="QToolBox" name="toolBox">
           <property name="currentIndex">
-           <number>2</number>
+           <number>0</number>
           </property>
           <widget class="QWidget" name="page_3">
            <property name="geometry">
@@ -69,7 +73,7 @@
              <x>0</x>
              <y>0</y>
              <width>510</width>
-             <height>325</height>
+             <height>310</height>
             </rect>
            </property>
            <attribute name="label">
@@ -101,7 +105,7 @@
              <x>0</x>
              <y>0</y>
              <width>510</width>
-             <height>325</height>
+             <height>310</height>
             </rect>
            </property>
            <attribute name="label">
@@ -119,7 +123,7 @@
              <x>0</x>
              <y>0</y>
              <width>510</width>
-             <height>325</height>
+             <height>310</height>
             </rect>
            </property>
            <attribute name="label">
@@ -208,7 +212,7 @@
                 <item>
                  <widget class="QPushButton" name="ok">
                   <property name="text">
-                   <string>确认</string>
+                   <string>确定</string>
                   </property>
                  </widget>
                 </item>
@@ -278,7 +282,7 @@
      <x>0</x>
      <y>0</y>
      <width>546</width>
-     <height>23</height>
+     <height>26</height>
     </rect>
    </property>
    <widget class="QMenu" name="menu">

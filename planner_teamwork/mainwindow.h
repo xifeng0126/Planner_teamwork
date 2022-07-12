@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include<QSqlTableModel>
 #include<QtCharts/QChart>
+#include"config.h"
 #include"table.h"
 #include"textwidget.h"
 #include"login.h"

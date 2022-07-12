@@ -32,6 +32,7 @@ SOURCES += main.cpp\
 
 HEADERS  += mainwindow.h \
     calendarwidget.h \
+    config.h \
     cwindow.h \
     login.h \
     startui.h \
@@ -49,4 +50,5 @@ FORMS    += mainwindow.ui \
     signup.ui \
     textwidget.ui\
     notewindow.ui
+
 

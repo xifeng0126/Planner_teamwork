@@ -20,6 +20,7 @@ public:
     QPushButton* yesbtn;
     QPushButton* nobtn;
     QMessageBox * m_box = new QMessageBox(QMessageBox::Question,"确认","是否确认退出");
+    bool donotRem;
     ~login();
 signals:
     void checkStart();

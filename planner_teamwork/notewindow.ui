@@ -25,7 +25,17 @@
         <item row="2" column="1">
          <widget class="QPushButton" name="tasksButton">
           <property name="text">
-           <string>学习任务</string>
+           <string/>
+          </property>
+          <property name="icon">
+           <iconset>
+            <normaloff>../resources/BBFB64C24270F0A6CC0C615A226C7EA1.png</normaloff>../resources/BBFB64C24270F0A6CC0C615A226C7EA1.png</iconset>
+          </property>
+          <property name="iconSize">
+           <size>
+            <width>60</width>
+            <height>16</height>
+           </size>
           </property>
          </widget>
         </item>
@@ -59,7 +69,17 @@
             <item row="1" column="0">
              <widget class="QPushButton" name="addnote">
               <property name="text">
-               <string>添加笔记</string>
+               <string/>
+              </property>
+              <property name="icon">
+               <iconset>
+                <normaloff>../resources/50AC34918CBBAA2FBC29802F50C99A66.png</normaloff>../resources/50AC34918CBBAA2FBC29802F50C99A66.png</iconset>
+              </property>
+              <property name="iconSize">
+               <size>
+                <width>66</width>
+                <height>16</height>
+               </size>
               </property>
              </widget>
             </item>
@@ -72,15 +92,32 @@
         </item>
         <item row="0" column="1">
          <widget class="QPushButton" name="comButton">
-          <property name="text">
-           <string>社区</string>
+          <property name="icon">
+           <iconset>
+            <normaloff>../resources/5F770C89EAA1E50FF18563ED558A3484.png</normaloff>../resources/5F770C89EAA1E50FF18563ED558A3484.png</iconset>
+          </property>
+          <property name="iconSize">
+           <size>
+            <width>60</width>
+            <height>16</height>
+           </size>
           </property>
          </widget>
         </item>
         <item row="1" column="1">
          <widget class="QPushButton" name="noteButton">
           <property name="text">
-           <string>我的笔记</string>
+           <string/>
+          </property>
+          <property name="icon">
+           <iconset>
+            <normaloff>../resources/6D14136C9A107D92EFE77D75B7035FB5.png</normaloff>../resources/6D14136C9A107D92EFE77D75B7035FB5.png</iconset>
+          </property>
+          <property name="iconSize">
+           <size>
+            <width>60</width>
+            <height>16</height>
+           </size>
           </property>
          </widget>
         </item>
@@ -99,8 +136,15 @@
         </item>
         <item row="3" column="1">
          <widget class="QPushButton" name="openCalendar">
-          <property name="text">
-           <string>日历</string>
+          <property name="icon">
+           <iconset>
+            <normaloff>../resources/7054128C7EFA597B43030425FCAEC263.png</normaloff>../resources/7054128C7EFA597B43030425FCAEC263.png</iconset>
+          </property>
+          <property name="iconSize">
+           <size>
+            <width>60</width>
+            <height>16</height>
+           </size>
           </property>
          </widget>
         </item>
@@ -252,7 +296,7 @@
      <x>0</x>
      <y>0</y>
      <width>567</width>
-     <height>23</height>
+     <height>26</height>
     </rect>
    </property>
   </widget>

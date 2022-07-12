@@ -13,7 +13,68 @@
   <property name="windowTitle">
    <string>Planner</string>
   </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>../resources/appicon.png</normaloff>../resources/appicon.png</iconset>
+  </property>
   <layout class="QGridLayout" name="gridLayout">
+   <item row="2" column="1">
+    <widget class="QPushButton" name="exitOut">
+     <property name="text">
+      <string/>
+     </property>
+     <property name="icon">
+      <iconset>
+       <normaloff>../resources/232BA6219E241DECDC960184E31063CD.png</normaloff>../resources/232BA6219E241DECDC960184E31063CD.png</iconset>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>63</width>
+       <height>16</height>
+      </size>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="1">
+    <widget class="QPushButton" name="logIn">
+     <property name="autoFillBackground">
+      <bool>false</bool>
+     </property>
+     <property name="styleSheet">
+      <string notr="true"/>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="icon">
+      <iconset>
+       <normaloff>../resources/9E90D0FDE9C043F6DAE3FFAC3F746C38.png</normaloff>../resources/9E90D0FDE9C043F6DAE3FFAC3F746C38.png</iconset>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>63</width>
+       <height>16</height>
+      </size>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="1">
+    <widget class="QPushButton" name="signUp">
+     <property name="text">
+      <string/>
+     </property>
+     <property name="icon">
+      <iconset>
+       <normaloff>../resources/645EC531675E93BBFDC7AEDE5743D790.png</normaloff>../resources/645EC531675E93BBFDC7AEDE5743D790.png</iconset>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>63</width>
+       <height>16</height>
+      </size>
+     </property>
+    </widget>
+   </item>
    <item row="0" column="0" rowspan="3">
     <widget class="QTextBrowser" name="textBrowser">
      <property name="html">
@@ -25,27 +86,6 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:12pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-     </property>
-    </widget>
-   </item>
-   <item row="0" column="1">
-    <widget class="QPushButton" name="logIn">
-     <property name="text">
-      <string>登录</string>
-     </property>
-    </widget>
-   </item>
-   <item row="1" column="1">
-    <widget class="QPushButton" name="signUp">
-     <property name="text">
-      <string>注册</string>
-     </property>
-    </widget>
-   </item>
-   <item row="2" column="1">
-    <widget class="QPushButton" name="exitOut">
-     <property name="text">
-      <string>退出</string>
      </property>
     </widget>
    </item>
