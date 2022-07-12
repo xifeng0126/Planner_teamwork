@@ -6,7 +6,8 @@
 #include<QSqlQuery>
 #include<QSqlQueryModel>
 #include<QSqlTableModel>
-#include"calendarwidget.h"
+#include<textwidget.h>
+#include<table.h>
 
 namespace Ui {
 class noteWindow;
@@ -20,7 +21,9 @@ public:
     explicit noteWindow(QWidget *parent = nullptr);
     ~noteWindow();
     void setmodel();
-    CalendarWidget n_calendar;
+    void showNote(int,bool);
+    void showCom(int,bool);
+
 
     QSqlDatabase db;
     int UID;
@@ -43,14 +46,14 @@ private slots:
 
     void on_cancel_clicked();
 
-    void on_openCalendar_clicked();
-
 signals:
     void tasks();
     void com();
     void note();
     void addNote();
 
+protected:
+    //void mouseReleaseEvent(QMouseEvent *event) override;
 
 
 
@@ -59,6 +62,7 @@ private:
     QSqlTableModel *model;
     QSqlTableModel *model2;
 
+    textWidget *tWidget;
 };
 
 #endif // NOTEWINDOW_H

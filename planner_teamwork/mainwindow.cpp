@@ -31,24 +31,10 @@ MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
-      ui->setupUi(this);
-//    model=new QSqlTableModel(this);
-//    model->setTable("tasks");
-//    ui->tableView->setModel(model);
-//    model->select();
-
-
+    ui->setupUi(this);
     this->setMinimumSize(1500,1000);
 
     on_actiona_triggered();
-    m_calendar.setWindowTitle("Calendar");
-
-
-
-
-
-    //ui->tableView->setEditTriggers(QAbstractItemView::NoEditTriggers);
-
     connect(ui->tableView,&table::releaseSign,this,&MainWindow::wetherComplete);  //设置右键点击显示对话框
     connect(ui->tableView_2,&table::releaseSign,this,&MainWindow::completed);    //同上
 //    connect(tWidget,&textWidget::deletSign,[=](){
@@ -68,16 +54,10 @@ MainWindow::MainWindow(QWidget *parent) :
         //connectDB(user_name);
         connectDB();
     });
-    connect(&m_login,&login::openSignUp,[=](){
-        m_sign.show();
-    });
     connect(&m_sign,&signup::checkStart,[=](){
         user_name = m_signcheck();
         //connectDB(user_name);
         connectDB();
-    });
-    connect(&m_sign,&signup::openLogIn,[=](){
-        m_login.show();
     });
 
     //connectDB(user_name);//打开数据库
@@ -197,7 +177,6 @@ void MainWindow::on_actioncalendar_triggered()
 {
     m_calendar.show();
 }
-
 //打开数据库
 void MainWindow::connectDB(){
     //db=QSqlDatabase::addDatabase("QSQLITE");
@@ -269,13 +248,15 @@ void MainWindow::setModel(){
     WaitComplete=model->rowCount();
     Completed=model2->rowCount();
 
+    qDebug()<<WaitComplete<<Completed;
+
     //model->removeColumn(6);
     //model2->removeColumn(6);
 
-//    if(!flag){
-//        //setProgress(0,0);
-//        ui->progressBar->setValue(0);
-//    }
+    if(!flag){
+        //setProgress(0,0);
+        ui->progressBar->setValue(0);
+    }
 
     setProgress(WaitComplete,Completed);
 }
@@ -348,8 +329,14 @@ void MainWindow::setProgress(double a, double b){
 //    ui->progressBar->setMinimum(0);
 //    ui->progressBar->setMaximum(0);
 
-    double percent=b/(a+b);
-    ui->progressBar->setValue(percent*100);
+    if(a==0&&b==0){
+        ui->progressBar->setValue(0);
+    }
+    else{
+        double percent=b/(a+b);
+        ui->progressBar->setValue(percent*100);
+    }
+
 }
 
 void MainWindow::connectUSER(){

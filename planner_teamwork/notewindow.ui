@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Planner</string>
+   <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QGridLayout" name="gridLayout_4">
@@ -22,24 +22,7 @@
       </property>
       <widget class="QWidget" name="page">
        <layout class="QGridLayout" name="gridLayout">
-        <item row="2" column="1">
-         <widget class="QPushButton" name="tasksButton">
-          <property name="text">
-           <string/>
-          </property>
-          <property name="icon">
-           <iconset>
-            <normaloff>../resources/BBFB64C24270F0A6CC0C615A226C7EA1.png</normaloff>../resources/BBFB64C24270F0A6CC0C615A226C7EA1.png</iconset>
-          </property>
-          <property name="iconSize">
-           <size>
-            <width>60</width>
-            <height>16</height>
-           </size>
-          </property>
-         </widget>
-        </item>
-        <item row="0" column="0" rowspan="5">
+        <item row="0" column="0" rowspan="4">
          <widget class="QStackedWidget" name="stackedWidget">
           <property name="currentIndex">
            <number>1</number>
@@ -47,7 +30,7 @@
           <widget class="QWidget" name="community">
            <layout class="QGridLayout" name="gridLayout_3">
             <item row="0" column="0">
-             <widget class="QTableView" name="tableView_2"/>
+             <widget class="table" name="tableView_2"/>
             </item>
            </layout>
           </widget>
@@ -69,22 +52,12 @@
             <item row="1" column="0">
              <widget class="QPushButton" name="addnote">
               <property name="text">
-               <string/>
-              </property>
-              <property name="icon">
-               <iconset>
-                <normaloff>../resources/50AC34918CBBAA2FBC29802F50C99A66.png</normaloff>../resources/50AC34918CBBAA2FBC29802F50C99A66.png</iconset>
-              </property>
-              <property name="iconSize">
-               <size>
-                <width>66</width>
-                <height>16</height>
-               </size>
+               <string>添加笔记</string>
               </property>
              </widget>
             </item>
             <item row="0" column="0" colspan="2">
-             <widget class="QTableView" name="tableView"/>
+             <widget class="table" name="tableView"/>
             </item>
            </layout>
           </widget>
@@ -92,36 +65,26 @@
         </item>
         <item row="0" column="1">
          <widget class="QPushButton" name="comButton">
-          <property name="icon">
-           <iconset>
-            <normaloff>../resources/5F770C89EAA1E50FF18563ED558A3484.png</normaloff>../resources/5F770C89EAA1E50FF18563ED558A3484.png</iconset>
-          </property>
-          <property name="iconSize">
-           <size>
-            <width>60</width>
-            <height>16</height>
-           </size>
+          <property name="text">
+           <string>社区</string>
           </property>
          </widget>
         </item>
         <item row="1" column="1">
          <widget class="QPushButton" name="noteButton">
           <property name="text">
-           <string/>
-          </property>
-          <property name="icon">
-           <iconset>
-            <normaloff>../resources/6D14136C9A107D92EFE77D75B7035FB5.png</normaloff>../resources/6D14136C9A107D92EFE77D75B7035FB5.png</iconset>
-          </property>
-          <property name="iconSize">
-           <size>
-            <width>60</width>
-            <height>16</height>
-           </size>
+           <string>我的笔记</string>
           </property>
          </widget>
         </item>
-        <item row="4" column="1">
+        <item row="2" column="1">
+         <widget class="QPushButton" name="tasksButton">
+          <property name="text">
+           <string>学习任务</string>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="1">
          <spacer name="verticalSpacer">
           <property name="orientation">
            <enum>Qt::Vertical</enum>
@@ -133,20 +96,6 @@
            </size>
           </property>
          </spacer>
-        </item>
-        <item row="3" column="1">
-         <widget class="QPushButton" name="openCalendar">
-          <property name="icon">
-           <iconset>
-            <normaloff>../resources/7054128C7EFA597B43030425FCAEC263.png</normaloff>../resources/7054128C7EFA597B43030425FCAEC263.png</iconset>
-          </property>
-          <property name="iconSize">
-           <size>
-            <width>60</width>
-            <height>16</height>
-           </size>
-          </property>
-         </widget>
         </item>
        </layout>
       </widget>
@@ -296,12 +245,19 @@
      <x>0</x>
      <y>0</y>
      <width>567</width>
-     <height>26</height>
+     <height>21</height>
     </rect>
    </property>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>table</class>
+   <extends>QTableView</extends>
+   <header>table.h</header>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>

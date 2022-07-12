@@ -1,6 +1,13 @@
 #include "notewindow.h"
 #include "ui_notewindow.h"
+#include"table.h"
+#include<QWidget>
 #include<QString>
+#include<QModelIndex>
+#include<QDebug>
+#include<QMouseEvent>
+#include<QTableView>
+#include<QTableWidget>
 
 noteWindow::noteWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -9,9 +16,13 @@ noteWindow::noteWindow(QWidget *parent) :
     ui->setupUi(this);
     db=QSqlDatabase::addDatabase("QSQLITE");
     db.setDatabaseName("system.db");
-    n_calendar.setWindowTitle("Calendar");
 
     db.open();
+
+    connect(ui->tableView,&table::releaseSign,this,&noteWindow::showNote);
+    connect(ui->tableView_2,&table::releaseSign,this,&noteWindow::showCom);
+
+
 
     ui->stackedWidget_2->setCurrentWidget(ui->page);
     ui->stackedWidget->setCurrentWidget(ui->community);
@@ -29,6 +40,30 @@ noteWindow::noteWindow(QWidget *parent) :
 noteWindow::~noteWindow()
 {
     delete ui;
+}
+
+void noteWindow::showNote(int i,bool b){
+    if(b){
+        tWidget=new textWidget;
+        QModelIndex index=model->index(i,1);
+        QString str=model->data(index).toString();
+        tWidget->setText(str);
+        tWidget->show();
+
+        tWidget->setAttribute(Qt::WA_DeleteOnClose);
+    }
+}
+
+void noteWindow::showCom(int i,bool b){
+    if(b){
+        tWidget=new textWidget;
+        QModelIndex index=model2->index(i,1);
+        QString str=model2->data(index).toString();
+        tWidget->setText(str);
+        tWidget->show();
+
+        tWidget->setAttribute(Qt::WA_DeleteOnClose);
+    }
 }
 
 void noteWindow::on_tasksButton_clicked()
@@ -98,6 +133,14 @@ void noteWindow::setmodel(){
     ui->tableView_2->setModel(model2);
 }
 
+//void noteWindow::mouseReleaseEvent(QMouseEvent *event){
+//    int curRow = model->currentIndex().row();
+//    if(curRow<0){
+//        qDebug()<<"wrong";
+//        return;
+//    }
+//}
+
 void noteWindow::on_radioButton_toggled(bool checked)
 {
     if(checked)
@@ -111,8 +154,3 @@ void noteWindow::on_radioButton_2_toggled(bool checked)
 }
 
 
-
-void noteWindow::on_openCalendar_clicked()
-{
-    n_calendar.show();
-}
