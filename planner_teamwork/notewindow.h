@@ -1,4 +1,4 @@
-#ifndef NOTEWINDOW_H
+﻿#ifndef NOTEWINDOW_H
 #define NOTEWINDOW_H
 
 #include <QMainWindow>
@@ -51,6 +51,7 @@ signals:
     void com();
     void note();
     void addNote();
+    void showMore();
 
 protected:
     //void mouseReleaseEvent(QMouseEvent *event) override;

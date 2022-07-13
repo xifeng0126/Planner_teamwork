@@ -1,4 +1,4 @@
-#include "notewindow.h"
+﻿#include "notewindow.h"
 #include "ui_notewindow.h"
 #include"table.h"
 #include<QWidget>
@@ -21,6 +21,7 @@ noteWindow::noteWindow(QWidget *parent) :
 
     connect(ui->tableView,&table::releaseSign,this,&noteWindow::showNote);
     connect(ui->tableView_2,&table::releaseSign,this,&noteWindow::showCom);
+    connect(ui->more,&QPushButton::clicked,this,&noteWindow::showMore);
 
 
 

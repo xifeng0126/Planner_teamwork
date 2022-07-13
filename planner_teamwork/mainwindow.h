@@ -12,6 +12,7 @@
 #include"signup.h"
 #include"notewindow.h"
 #include"calendarwidget.h"
+#include"moreui.h"
 
 namespace Ui {
 class MainWindow;
@@ -28,6 +29,8 @@ public:
     signup m_sign;
     login m_login;
     CalendarWidget m_calendar;
+    moreUI m_moreUI;
+    noteWindow noteW;
     void connectDB();
     void connectUSER();
     void intitData();
@@ -84,8 +87,6 @@ private:
     QSqlDatabase system_db;//用户名，密码数据库
 
     bool flag =true;
-
-    noteWindow noteW;
 
     //bool Delete_is_clicked=false;
 };

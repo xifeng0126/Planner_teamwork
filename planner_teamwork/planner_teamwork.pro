@@ -22,6 +22,7 @@ SOURCES += main.cpp\
     cwindow.cpp \
         mainwindow.cpp \
     login.cpp \
+    moreui.cpp \
     startui.cpp \
     signup.cpp \
     table.cpp \
@@ -35,6 +36,7 @@ HEADERS  += mainwindow.h \
     config.h \
     cwindow.h \
     login.h \
+    moreui.h \
     startui.h \
     signup.h \
     table.h \
@@ -46,6 +48,7 @@ HEADERS  += mainwindow.h \
 FORMS    += mainwindow.ui \
     cwindow.ui \
     login.ui \
+    moreui.ui \
     startui.ui \
     signup.ui \
     textwidget.ui\
