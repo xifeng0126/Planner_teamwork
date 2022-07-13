@@ -40,8 +40,14 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(&m_start,&startui::login_start,[=](){//测试初始登录界面
         m_login.show();
     });
+    connect(&m_login,&login::openSignUp,[=](){
+        m_sign.show();
+    });
     connect(&m_start,&startui::sign_start,[=](){
         m_sign.show();
+    });
+    connect(&m_sign,&signup::openLogIn,[=](){
+        m_login.show();
     });
     connect(&m_login,&login::checkStart,[=](){
         user_name =  m_logincheck();
