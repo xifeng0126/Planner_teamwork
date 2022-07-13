@@ -49,7 +49,7 @@
       <item row="3" column="2">
        <widget class="QLineEdit" name="passWord">
         <property name="inputMethodHints">
-         <set>Qt::ImhHiddenText|Qt::ImhNoAutoUppercase|Qt::ImhNoPredictiveText|Qt::ImhSensitiveData</set>
+         <set>Qt::ImhNoAutoUppercase|Qt::ImhNoPredictiveText</set>
         </property>
         <property name="text">
          <string/>
@@ -119,12 +119,6 @@
       </item>
       <item>
        <widget class="QPushButton" name="signIn">
-        <property name="minimumSize">
-         <size>
-          <width>80</width>
-          <height>20</height>
-         </size>
-        </property>
         <property name="text">
          <string>注册</string>
         </property>
@@ -148,12 +142,6 @@
       </item>
       <item>
        <widget class="QPushButton" name="exitOut">
-        <property name="minimumSize">
-         <size>
-          <width>80</width>
-          <height>20</height>
-         </size>
-        </property>
         <property name="text">
          <string>退出</string>
         </property>

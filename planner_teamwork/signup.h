@@ -1,4 +1,4 @@
-#ifndef SIGNUP_H
+﻿#ifndef SIGNUP_H
 #define SIGNUP_H
 
 #include<QWidget>
@@ -21,7 +21,7 @@ public:
     QPushButton* yesbtn;
     QPushButton* nobtn;
     QMessageBox * m_box = new QMessageBox(QMessageBox::Question,"确认","是否确认退出");
-    static bool check(QString);//注册时查询账户名是否已存在
+    bool check(QString);//注册时查询账户名是否已存在
     ~signup();
 signals:
     void checkStart();
