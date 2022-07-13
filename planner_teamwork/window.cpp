@@ -1,8 +1,8 @@
-#include "window.h"
+﻿#include "window.h"
 
 Window::Window(QWidget *parent)
     : QWidget(parent) ,time(0), StartOrNot(false), timeout(25 * 60), sate(true) {
-    this -> setWindowTitle("番茄时钟 0.1");
+    this -> setWindowTitle("番茄时钟");
     this -> setFixedSize(200, 200);
     this -> setWindowFlag(Qt::WindowStaysOnTopHint);
     this -> setStyleSheet("background-color: rgb(255,255,255);");
