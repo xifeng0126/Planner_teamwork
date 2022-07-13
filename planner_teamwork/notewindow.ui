@@ -22,6 +22,26 @@
       </property>
       <widget class="QWidget" name="page">
        <layout class="QGridLayout" name="gridLayout_2">
+        <item row="3" column="1">
+         <widget class="QPushButton" name="tasksButton">
+          <property name="text">
+           <string>学习任务</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="1">
+         <spacer name="verticalSpacer_3">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>40</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
         <item row="0" column="0" rowspan="7">
          <widget class="QStackedWidget" name="stackedWidget">
           <property name="currentIndex">
@@ -30,15 +50,12 @@
           <widget class="QWidget" name="community">
            <layout class="QGridLayout" name="gridLayout_3">
             <item row="0" column="0">
-             <widget class="table" name="tableView_2"/>
+             <widget class="list" name="listView_2"/>
             </item>
            </layout>
           </widget>
           <widget class="QWidget" name="myNote">
            <layout class="QGridLayout" name="gridLayout_4">
-            <item row="0" column="0" colspan="2">
-             <widget class="table" name="tableView"/>
-            </item>
             <item row="1" column="0">
              <widget class="QPushButton" name="addnote">
               <property name="text">
@@ -59,56 +76,11 @@
               </property>
              </spacer>
             </item>
+            <item row="0" column="0" colspan="2">
+             <widget class="list" name="listView"/>
+            </item>
            </layout>
           </widget>
-         </widget>
-        </item>
-        <item row="0" column="1">
-         <spacer name="verticalSpacer_3">
-          <property name="orientation">
-           <enum>Qt::Vertical</enum>
-          </property>
-          <property name="sizeHint" stdset="0">
-           <size>
-            <width>20</width>
-            <height>40</height>
-           </size>
-          </property>
-         </spacer>
-        </item>
-        <item row="1" column="1">
-         <widget class="QPushButton" name="comButton">
-          <property name="text">
-           <string>社区</string>
-          </property>
-         </widget>
-        </item>
-        <item row="2" column="1">
-         <widget class="QPushButton" name="noteButton">
-          <property name="text">
-           <string>我的笔记</string>
-          </property>
-         </widget>
-        </item>
-        <item row="3" column="1">
-         <widget class="QPushButton" name="tasksButton">
-          <property name="text">
-           <string>学习任务</string>
-          </property>
-         </widget>
-        </item>
-        <item row="4" column="1">
-         <widget class="QPushButton" name="tomatoButton">
-          <property name="text">
-           <string>番茄钟</string>
-          </property>
-         </widget>
-        </item>
-        <item row="5" column="1">
-         <widget class="QPushButton" name="more">
-          <property name="text">
-           <string>更多</string>
-          </property>
          </widget>
         </item>
         <item row="6" column="1">
@@ -123,6 +95,34 @@
            </size>
           </property>
          </spacer>
+        </item>
+        <item row="2" column="1">
+         <widget class="QPushButton" name="noteButton">
+          <property name="text">
+           <string>我的笔记</string>
+          </property>
+         </widget>
+        </item>
+        <item row="5" column="1">
+         <widget class="QPushButton" name="more">
+          <property name="text">
+           <string>更多</string>
+          </property>
+         </widget>
+        </item>
+        <item row="4" column="1">
+         <widget class="QPushButton" name="tomatoButton">
+          <property name="text">
+           <string>番茄钟</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="1">
+         <widget class="QPushButton" name="comButton">
+          <property name="text">
+           <string>社区</string>
+          </property>
+         </widget>
         </item>
        </layout>
       </widget>
@@ -262,6 +262,16 @@
         </item>
        </layout>
       </widget>
+      <widget class="QWidget" name="page_3">
+       <layout class="QGridLayout" name="gridLayout_7">
+        <item row="0" column="0">
+         <widget class="table" name="tableView"/>
+        </item>
+        <item row="1" column="0">
+         <widget class="table" name="tableView_2"/>
+        </item>
+       </layout>
+      </widget>
      </widget>
     </item>
    </layout>
@@ -272,7 +282,7 @@
      <x>0</x>
      <y>0</y>
      <width>567</width>
-     <height>26</height>
+     <height>21</height>
     </rect>
    </property>
   </widget>
@@ -283,6 +293,11 @@
    <class>table</class>
    <extends>QTableView</extends>
    <header>table.h</header>
+  </customwidget>
+  <customwidget>
+   <class>list</class>
+   <extends>QListView</extends>
+   <header>list.h</header>
   </customwidget>
  </customwidgets>
  <resources/>

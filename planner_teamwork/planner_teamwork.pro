@@ -29,13 +29,15 @@ SOURCES += main.cpp\
     qcustomplot.cpp\
     textwidget.cpp\
     notewindow.cpp\
-    window.cpp
+    window.cpp\
+    list.cpp
 
 
 HEADERS  += mainwindow.h \
     calendarwidget.h \
     config.h \
     cwindow.h \
+    list.h \
     login.h \
     moreui.h \
     startui.h \

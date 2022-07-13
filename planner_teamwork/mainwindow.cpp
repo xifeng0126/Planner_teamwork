@@ -1,5 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include"list.h"
 #include<QWidget>
 #include<QApplication>
 #include<QMessageBox>
@@ -19,9 +20,16 @@
 #include<QMouseEvent>
 #include<QTextDocument>
 #include<QTime>
+#include<QFont>
 //#include <QtCharts/QChartView>
 //#include <QtCharts/QLineSeries>
 //#include <QtCharts>
+
+#include <QtCharts/QChartView>
+#include <QtCharts/QLineSeries>
+#include <QtCharts>
+
+QT_CHARTS_USE_NAMESPACE
 
 //int MainWindow::UID=0;
 
@@ -32,9 +40,35 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
     this->setMinimumSize(1500,1000);
 
+    //设置QCharts折线图
+    QLineSeries *series = new QLineSeries();
+
+    series->append(0, 6);
+    series->append(2, 4);
+    series->append(3, 8);
+    series->append(7, 4);
+    series->append(10, 5);
+    *series << QPointF(11, 1) << QPointF(13, 3) << QPointF(17, 6) << QPointF(18, 3) << QPointF(20, 2);
+
+    QChart *chart = new QChart();
+    chart->legend()->hide();
+    chart->addSeries(series);
+    chart->createDefaultAxes();
+    chart->setTitle("每日完成任务数：");
+
+    ui->graphicsView_2->setChart(chart);
+    ui->graphicsView_2->setRenderHint(QPainter::Antialiasing);
+    //到此为止，qchart折线图初始化完毕
+
+
+    createpieSewies();
     on_actiona_triggered();
     connect(ui->tableView,&table::releaseSign,this,&MainWindow::wetherComplete);  //设置右键点击显示对话框
     connect(ui->tableView_2,&table::releaseSign,this,&MainWindow::completed);    //同上
+
+    connect(ui->listView,&list::releaseSign,this,&MainWindow::wetherComplete);  //设置右键点击显示对话框
+    connect(ui->listView_2,&list::releaseSign,this,&MainWindow::completed);
+
     connect(&noteW,&noteWindow::showMore,&m_moreUI,&moreUI::show);
     connect(&noteW,&noteWindow::tomato,[=](){
         m_window.show();
@@ -262,6 +296,7 @@ void MainWindow::setModel(){
     }
 
     setProgress(WaitComplete,Completed);
+    setListModel();
 }
 
 void MainWindow::setInportance(){    //设置优先级表单
@@ -464,57 +499,102 @@ bool MainWindow::QueryUserData_1()//登录检测
     return false;
 }
 
-//void MainWindow::createpieSewies()
+//饼状图的初始化函数
+void MainWindow::createpieSewies()
+{
+    //饼状图
+    QPieSeries * my_pieSeries = new QPieSeries();
+    //中间圆与大圆的比例
+    my_pieSeries->setHoleSize(0.35);
+    //扇形及数据
+    QPieSlice *pieSlice_running = new QPieSlice();
+    pieSlice_running->setValue(25);//扇形占整个圆的百分比
+    pieSlice_running->setLabel("待完成 2/8");
+    pieSlice_running->setLabelVisible();
+    pieSlice_running->setColor(QColor("#4cb9cf"));
+    pieSlice_running->setLabelColor(QColor("#4cb9cf"));
+    pieSlice_running->setBorderColor(QColor("#4cb9cf"));
+    pieSlice_running->setBorderColor(QColor());
+    my_pieSeries->append(pieSlice_running);
+
+    QPieSlice *pieSlice_noconnect = new QPieSlice();
+    pieSlice_noconnect->setValue(25);
+    pieSlice_noconnect->setLabel("已过期 2/8");
+    pieSlice_noconnect->setColor(QColor("#53b666"));
+    pieSlice_noconnect->setLabelColor(QColor("#53b666"));
+    pieSlice_noconnect->setBorderColor(QColor("#53b666"));
+    pieSlice_noconnect->setLabelVisible();//设置标签可见,缺省不可见
+    my_pieSeries->append(pieSlice_noconnect);
+
+    QPieSlice *pieSlice_idle = new QPieSlice();
+    pieSlice_idle->setValue(50);
+    pieSlice_idle->setLabel("已完成 4/8");
+    pieSlice_idle->setLabelVisible();
+    pieSlice_idle->setColor(QColor("#2f89cf"));
+    pieSlice_idle->setLabelColor(QColor("#2f89cf"));
+    pieSlice_idle->setBorderColor(QColor("#2f89cf"));
+    my_pieSeries->append(pieSlice_idle);
+    // 图表视图
+    QChart *chart = new QChart();
+    chart->setTitle("任务完成度一览");
+    chart->addSeries(my_pieSeries);
+    chart->setAnimationOptions(QChart::SeriesAnimations);
+    chart->legend()->setAlignment(Qt::AlignBottom);
+    chart->legend()->setBackgroundVisible(false);
+    chart->legend()->setFont(QFont("黑体", 8)) ; // 图例字体
+    chart->setTitleBrush(QColor("#808396"));
+    chart->legend()->setLabelColor(QColor("#808396"));
+    QChartView *chartView = new QChartView();
+    chartView = new QChartView(ui->graphicsView);
+    chartView->setRenderHint(QPainter::Antialiasing);
+    chartView->setRenderHint(QPainter::NonCosmeticDefaultPen);
+    chartView->setChart(chart);
+    chartView->setMinimumSize(700,300);
+    //这下面原来代码是该改列方式，不注视掉的话会将饼状图初始化在主界面上，不知道为啥
+    //ui->gridLayout->addWidget(chartView);
+}
+
+
+//void MainWindow::on_actiontest_triggered()
 //{
-//    //饼状图r
-//    QPieSeries * my_pieSeries = new QPieSeries();
-//    //中间圆与大圆的比例
-//    my_pieSeries->setHoleSize(0.35);
-//    //扇形及数据
-//    QPieSlice *pieSlice_running = new QPieSlice();
-//    pieSlice_running->setValue(25);//扇形占整个圆的百分比
-//    pieSlice_running->setLabel("XXX");
-//    pieSlice_running->setLabelVisible();
-//    pieSlice_running->setColor(QColor("#4cb9cf"));
-//    pieSlice_running->setLabelColor(QColor("#4cb9cf"));
-//    pieSlice_running->setBorderColor(QColor("#4cb9cf"));
-//    pieSlice_running->setBorderColor(QColor());
-//    my_pieSeries->append(pieSlice_running);
-
-//    QPieSlice *pieSlice_noconnect = new QPieSlice();
-//    pieSlice_noconnect->setValue(25);
-//    pieSlice_noconnect->setLabel("YYY");
-//    pieSlice_noconnect->setColor(QColor("#53b666"));
-//    pieSlice_noconnect->setLabelColor(QColor("#53b666"));
-//    pieSlice_noconnect->setBorderColor(QColor("#53b666"));
-//    pieSlice_noconnect->setLabelVisible();//设置标签可见,缺省不可见
-//    my_pieSeries->append(pieSlice_noconnect);
-
-//    QPieSlice *pieSlice_idle = new QPieSlice();
-//    pieSlice_idle->setValue(50);
-//    pieSlice_idle->setLabel("WWW");
-//    pieSlice_idle->setLabelVisible();
-//    pieSlice_idle->setColor(QColor("#2f89cf"));
-//    pieSlice_idle->setLabelColor(QColor("#2f89cf"));
-//    pieSlice_idle->setBorderColor(QColor("#2f89cf"));
-//    my_pieSeries->append(pieSlice_idle);
-// 图表视图
-//    QChart *chart = new QChart();
-//    chart->setTitle("FFFFF");
-//    chart->addSeries(my_pieSeries);
-//    chart->setAnimationOptions(QChart::SeriesAnimations);
-//    chart->legend()->setAlignment(Qt::AlignBottom);
-//    chart->legend()->setBackgroundVisible(false);
-//    chart->legend()->setFont(QFont("黑体", 8)) ; // 图例字体
-//    chart->setTitleBrush(QColor("#808396"));
-//    chart->legend()->setLabelColor(QColor("#808396"));
-//    QChartView *chartView = new QChartView();
-//    chartView = new QChartView(ui->graphicsView_3);
-//    chartView->setRenderHint(QPainter::Antialiasing);
-//    chartView->setRenderHint(QPainter::NonCosmeticDefaultPen);
-//    chartView->setChart(chart);
-//    chartView->setMinimumSize(700,300);
-//    //ui->gridLayout->addWidget(chartView);
+//    ui->stackedWidget->setCurrentWidget(ui->page_2);
 //}
 
+void MainWindow::setListModel(){
+    smodel=new QStringListModel(this);
+    smodel2=new QStringListModel(this);
+    QStringList list1;
+    QStringList list2;
 
+    QFont font;
+    font.setPixelSize(25);
+    font.setBold(true);
+    font.setWeight(50);
+
+    int row=ui->tableView->model()->rowCount();
+    for (int r=0;r<row;r++) {
+        QString str=ui->tableView->model()->index(r,0).data().toString();
+        //smodel->setStringList(QStringList()<<str);
+        list1.append(str);
+    }
+    smodel->setStringList(list1);
+    ui->listView->setFont(font);
+    ui->listView->setModel(smodel);
+
+//    for(int i=0;i<row;i++){
+//        //ui->listView->Columns[i].width=100;
+//        //ui->listView->model()->index(i,0).
+//        ui->listView->vertica
+//    }
+
+    int row2=ui->tableView_2->model()->rowCount();
+    for (int r=0;r<row2;r++) {
+        QString str2=ui->tableView_2->model()->index(r,0).data().toString();
+        //smodel->setStringList(QStringList()<<str);
+        list2.append(str2);
+    }
+    smodel2->setStringList(list2);
+    ui->listView_2->setFont(font);
+    ui->listView_2->setModel(smodel2);
+
+}

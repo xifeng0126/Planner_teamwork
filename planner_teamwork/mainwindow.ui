@@ -22,10 +22,31 @@
     <item row="0" column="0">
      <widget class="QStackedWidget" name="stackedWidget">
       <property name="currentIndex">
-       <number>1</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="calc">
-       <layout class="QGridLayout" name="gridLayout_9"/>
+       <layout class="QGridLayout" name="gridLayout_9">
+        <item row="0" column="0">
+         <layout class="QVBoxLayout" name="verticalLayout">
+          <item>
+           <widget class="QChartView" name="graphicsView"/>
+          </item>
+          <item>
+           <widget class="QChartView" name="graphicsView_2"/>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="page_2">
+       <layout class="QGridLayout" name="gridLayout_10">
+        <item row="0" column="0">
+         <widget class="table" name="tableView"/>
+        </item>
+        <item row="1" column="0">
+         <widget class="table" name="tableView_2"/>
+        </item>
+       </layout>
       </widget>
       <widget class="QWidget" name="task">
        <layout class="QGridLayout" name="gridLayout_4">
@@ -65,23 +86,27 @@
         <item row="1" column="0" colspan="4">
          <widget class="QToolBox" name="toolBox">
           <property name="currentIndex">
-           <number>0</number>
+           <number>1</number>
           </property>
           <widget class="QWidget" name="page_3">
            <property name="geometry">
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>510</width>
-             <height>310</height>
+             <width>215</width>
+             <height>136</height>
             </rect>
            </property>
            <attribute name="label">
             <string>计划</string>
            </attribute>
            <layout class="QGridLayout" name="gridLayout_3">
-            <item row="0" column="0" colspan="2">
-             <widget class="table" name="tableView"/>
+            <item row="1" column="1">
+             <widget class="QProgressBar" name="progressBar">
+              <property name="value">
+               <number>24</number>
+              </property>
+             </widget>
             </item>
             <item row="1" column="0">
              <widget class="QLabel" name="label_9">
@@ -90,12 +115,8 @@
               </property>
              </widget>
             </item>
-            <item row="1" column="1">
-             <widget class="QProgressBar" name="progressBar">
-              <property name="value">
-               <number>24</number>
-              </property>
-             </widget>
+            <item row="0" column="0" colspan="2">
+             <widget class="list" name="listView"/>
             </item>
            </layout>
           </widget>
@@ -113,7 +134,7 @@
            </attribute>
            <layout class="QGridLayout" name="gridLayout_5">
             <item row="0" column="0">
-             <widget class="table" name="tableView_2"/>
+             <widget class="list" name="listView_2"/>
             </item>
            </layout>
           </widget>
@@ -122,8 +143,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>510</width>
-             <height>310</height>
+             <width>372</width>
+             <height>174</height>
             </rect>
            </property>
            <attribute name="label">
@@ -292,6 +313,7 @@
     <addaction name="actiona"/>
     <addaction name="actionb"/>
     <addaction name="actioncalendar"/>
+    <addaction name="separator"/>
    </widget>
    <addaction name="menu"/>
   </widget>
@@ -311,12 +333,27 @@
     <string>calendar</string>
    </property>
   </action>
+  <action name="actiontest">
+   <property name="text">
+    <string>test</string>
+   </property>
+  </action>
  </widget>
  <customwidgets>
   <customwidget>
    <class>table</class>
    <extends>QTableView</extends>
    <header>table.h</header>
+  </customwidget>
+  <customwidget>
+   <class>QChartView</class>
+   <extends>QGraphicsView</extends>
+   <header>qchartview.h</header>
+  </customwidget>
+  <customwidget>
+   <class>list</class>
+   <extends>QListView</extends>
+   <header>list.h</header>
   </customwidget>
  </customwidgets>
  <resources/>

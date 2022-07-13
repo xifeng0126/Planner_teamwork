@@ -8,6 +8,7 @@
 #include<QMouseEvent>
 #include<QTableView>
 #include<QTableWidget>
+#include<QFont>
 
 noteWindow::noteWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -21,6 +22,8 @@ noteWindow::noteWindow(QWidget *parent) :
 
     connect(ui->tableView,&table::releaseSign,this,&noteWindow::showNote);
     connect(ui->tableView_2,&table::releaseSign,this,&noteWindow::showCom);
+    connect(ui->listView,&list::releaseSign,this,&noteWindow::showNote);
+    connect(ui->listView_2,&list::releaseSign,this,&noteWindow::showCom);
     connect(ui->more,&QPushButton::clicked,this,&noteWindow::showMore);
 
 
@@ -132,6 +135,8 @@ void noteWindow::setmodel(){
     //model2->setFilter("whetherPublic='1'");
     model2->select();
     ui->tableView_2->setModel(model2);
+
+    setListModel();
 }
 
 //void noteWindow::mouseReleaseEvent(QMouseEvent *event){
@@ -159,5 +164,45 @@ void noteWindow::on_tomatoButton_clicked()
     tomato();
 }
 
+void noteWindow::setListModel(){
+    smodel=new QStringListModel(this);
+    smodel2=new QStringListModel(this);
+    QStringList list1;
+    QStringList list2;
+
+    QFont font;
+    font.setPixelSize(25);
+    font.setBold(true);
+    font.setWeight(50);
 
 
+    int row=ui->tableView->model()->rowCount();
+    for (int r=0;r<row;r++) {
+        QString str=ui->tableView->model()->index(r,0).data().toString();
+        //smodel->setStringList(QStringList()<<str);
+        list1.append(str);
+    }
+    smodel->setStringList(list1);
+    ui->listView->setFont(font);
+    ui->listView->setModel(smodel);
+
+    int row2=ui->tableView_2->model()->rowCount();
+    for (int r=0;r<row2;r++) {
+        QString str2=ui->tableView_2->model()->index(r,0).data().toString();
+        //smodel->setStringList(QStringList()<<str);
+        list2.append(str2);
+    }
+    smodel2->setStringList(list2);
+    ui->listView_2->setFont(font);
+    ui->listView_2->setModel(smodel2);
+
+}
+
+
+
+
+
+//void noteWindow::on_pushButton_clicked()
+//{
+//    ui->stackedWidget_2->setCurrentWidget(ui->page_3);
+//}

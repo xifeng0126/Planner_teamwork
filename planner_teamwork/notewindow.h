@@ -8,6 +8,8 @@
 #include<QSqlTableModel>
 #include<textwidget.h>
 #include<table.h>
+#include<QStringListModel>
+#include"list.h"
 
 namespace Ui {
 class noteWindow;
@@ -23,6 +25,7 @@ public:
     void setmodel();
     void showNote(int,bool);
     void showCom(int,bool);
+    void setListModel();
 
 
     QSqlDatabase db;
@@ -48,6 +51,8 @@ private slots:
 
     void on_tomatoButton_clicked();
 
+    //void on_pushButton_clicked();
+
 signals:
     void tasks();
     void com();
@@ -65,6 +70,9 @@ private:
     Ui::noteWindow *ui;
     QSqlTableModel *model;
     QSqlTableModel *model2;
+
+    QStringListModel *smodel;
+    QStringListModel *smodel2;
 
     textWidget *tWidget;
 };

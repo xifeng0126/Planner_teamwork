@@ -14,6 +14,13 @@
 #include"calendarwidget.h"
 #include"moreui.h"
 #include"window.h"
+#include <QtCharts/QChartView>
+#include <QtCharts/QLineSeries>
+#include <QtCharts>
+#include<QStringListModel>
+#include<QListView>
+
+QT_CHARTS_USE_NAMESPACE
 
 namespace Ui {
 class MainWindow;
@@ -40,6 +47,8 @@ public:
     void wetherComplete(int,bool);
     void completed(int,bool);
     void setModel();
+    void setListModel();
+
     void setProgress(double,double);
     //void closeButton();
     void createpieSewies();
@@ -68,6 +77,8 @@ private slots:
 
     //static int UID;
 
+    //void on_actiontest_triggered();
+
 protected:
     //void mouseReleaseEvent(QMouseEvent *event) override;
 signals:
@@ -78,6 +89,10 @@ private:
     QSqlTableModel *model;
     QSqlTableModel *model2;
     //QSqlTableModel *model3;
+
+    QStringListModel *smodel;
+    QStringListModel *smodel2;
+
     QSqlDatabase db;
     QSqlDatabase dbPublic;
 
