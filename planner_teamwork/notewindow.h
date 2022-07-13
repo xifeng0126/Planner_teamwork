@@ -46,12 +46,15 @@ private slots:
 
     void on_cancel_clicked();
 
+    void on_tomatoButton_clicked();
+
 signals:
     void tasks();
     void com();
     void note();
     void addNote();
     void showMore();
+    void tomato();
 
 protected:
     //void mouseReleaseEvent(QMouseEvent *event) override;
@@ -67,3 +70,4 @@ private:
 };
 
 #endif // NOTEWINDOW_H
+

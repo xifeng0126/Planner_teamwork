@@ -1,4 +1,4 @@
-﻿#ifndef MAINWINDOW_H
+#ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
 #include <QMainWindow>
@@ -13,6 +13,7 @@
 #include"notewindow.h"
 #include"calendarwidget.h"
 #include"moreui.h"
+#include"window.h"
 
 namespace Ui {
 class MainWindow;
@@ -31,6 +32,7 @@ public:
     CalendarWidget m_calendar;
     moreUI m_moreUI;
     noteWindow noteW;
+    Window m_window;
     void connectDB();
     void connectUSER();
     void intitData();
@@ -92,3 +94,4 @@ private:
 };
 
 #endif // MAINWINDOW_H
+

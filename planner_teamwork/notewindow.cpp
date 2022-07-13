@@ -154,4 +154,10 @@ void noteWindow::on_radioButton_2_toggled(bool checked)
     whetherPublic=true;
 }
 
+void noteWindow::on_tomatoButton_clicked()
+{
+    tomato();
+}
+
+
 

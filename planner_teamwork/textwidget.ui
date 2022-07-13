@@ -24,17 +24,7 @@
    <item row="1" column="0">
     <widget class="QPushButton" name="pushButton">
      <property name="text">
-      <string/>
-     </property>
-     <property name="icon">
-      <iconset>
-       <normaloff>../resources/AA43048754DDDB15C08D3D6281268E31.png</normaloff>../resources/AA43048754DDDB15C08D3D6281268E31.png</iconset>
-     </property>
-     <property name="iconSize">
-      <size>
-       <width>66</width>
-       <height>16</height>
-      </size>
+      <string>删除此项</string>
      </property>
     </widget>
    </item>

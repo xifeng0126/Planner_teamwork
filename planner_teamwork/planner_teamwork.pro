@@ -20,7 +20,7 @@ CONFIG += c++11
 SOURCES += main.cpp\
     calendarwidget.cpp \
     cwindow.cpp \
-        mainwindow.cpp \
+    mainwindow.cpp \
     login.cpp \
     moreui.cpp \
     startui.cpp \
@@ -28,7 +28,8 @@ SOURCES += main.cpp\
     table.cpp \
     qcustomplot.cpp\
     textwidget.cpp\
-    notewindow.cpp
+    notewindow.cpp\
+    window.cpp
 
 
 HEADERS  += mainwindow.h \
@@ -42,7 +43,8 @@ HEADERS  += mainwindow.h \
     table.h \
     qcustomplot.h\
     textwidget.h\
-    notewindow.h
+    notewindow.h\
+    window.h
 
 
 FORMS    += mainwindow.ui \

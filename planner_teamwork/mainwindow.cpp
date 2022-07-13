@@ -1,4 +1,4 @@
-﻿#include "mainwindow.h"
+#include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include<QWidget>
 #include<QApplication>
@@ -36,6 +36,9 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->tableView,&table::releaseSign,this,&MainWindow::wetherComplete);  //设置右键点击显示对话框
     connect(ui->tableView_2,&table::releaseSign,this,&MainWindow::completed);    //同上
     connect(&noteW,&noteWindow::showMore,&m_moreUI,&moreUI::show);
+    connect(&noteW,&noteWindow::tomato,[=](){
+        m_window.show();
+    });
 
     connect(&m_start,&startui::login_start,[=](){//测试初始登录界面
         m_login.show();
