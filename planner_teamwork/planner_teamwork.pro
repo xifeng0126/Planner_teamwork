@@ -23,6 +23,7 @@ SOURCES += main.cpp\
     mainwindow.cpp \
     login.cpp \
     moreui.cpp \
+    showuser.cpp \
     startui.cpp \
     signup.cpp \
     table.cpp \
@@ -40,6 +41,7 @@ HEADERS  += mainwindow.h \
     list.h \
     login.h \
     moreui.h \
+    showuser.h \
     startui.h \
     signup.h \
     table.h \
@@ -53,6 +55,7 @@ FORMS    += mainwindow.ui \
     cwindow.ui \
     login.ui \
     moreui.ui \
+    showuser.ui \
     startui.ui \
     signup.ui \
     textwidget.ui\

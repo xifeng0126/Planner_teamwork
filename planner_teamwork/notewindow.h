@@ -10,6 +10,7 @@
 #include<table.h>
 #include<QStringListModel>
 #include"list.h"
+#include"showuser.h"
 
 namespace Ui {
 class noteWindow;
@@ -75,6 +76,7 @@ private:
     QStringListModel *smodel2;
 
     textWidget *tWidget;
+    showUser *user;
 };
 
 #endif // NOTEWINDOW_H

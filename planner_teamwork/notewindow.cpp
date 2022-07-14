@@ -68,6 +68,27 @@ void noteWindow::showCom(int i,bool b){
 
         tWidget->setAttribute(Qt::WA_DeleteOnClose);
     }
+    if(!b){
+        QSqlQuery sql(db);
+        sql.exec("select *from users");
+
+        QModelIndex index=model2->index(i,3);
+        int i=model2->data(index).toInt();
+
+        QString str;
+        while (sql.next()) {
+            //int uid=sql.value(2).toInt();
+            if(i==sql.value(2).toInt()){
+                str=sql.value(0).toString();
+                break;
+            }
+        }
+    user=new showUser;
+    user->setName(str);
+    user->show();
+    user->setAttribute(Qt::WA_DeleteOnClose);
+
+    }
 }
 
 void noteWindow::on_tasksButton_clicked()
