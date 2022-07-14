@@ -1,0 +1,24 @@
+<RCC>
+    <qresource prefix="/new/prefix1">
+        <file>resources/0C05E4AE59C02077D832BA0FE2C810DD.png</file>
+        <file>resources/1.png</file>
+        <file>resources/2.JPG</file>
+        <file>resources/3.PNG</file>
+        <file>resources/4.png</file>
+        <file>resources/5F770C89EAA1E50FF18563ED558A3484.png</file>
+        <file>resources/6D14136C9A107D92EFE77D75B7035FB5.png</file>
+        <file>resources/9E90D0FDE9C043F6DAE3FFAC3F746C38.png</file>
+        <file>resources/34A3BAEAAF98E031781DF6AAC3A5A96F.png</file>
+        <file>resources/50AC34918CBBAA2FBC29802F50C99A66.png</file>
+        <file>resources/66.JPG</file>
+        <file>resources/232BA6219E241DECDC960184E31063CD.png</file>
+        <file>resources/645EC531675E93BBFDC7AEDE5743D790.png</file>
+        <file>resources/4537006CBA78D20650F3CC6E51755E5D.png</file>
+        <file>resources/7054128C7EFA597B43030425FCAEC263.png</file>
+        <file>resources/AA43048754DDDB15C08D3D6281268E31.png</file>
+        <file>resources/ada.png</file>
+        <file>resources/appicon.png</file>
+        <file>resources/apple.PNG</file>
+        <file>resources/IMG_0704.PNG</file>
+    </qresource>
+</RCC>

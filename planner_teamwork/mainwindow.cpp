@@ -1,5 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include "notifymanager.h"
 #include"list.h"
 #include<QWidget>
 #include<QApplication>
@@ -39,6 +40,14 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
     this->setMinimumSize(1500,1000);
+
+
+    NotifyManager *manager = new NotifyManager(this);
+
+    connect(&m_login,&login::checkStart, manager, [this,manager]{
+        Sleep(100);
+        manager->notify("新提醒", "您有一项任务待完成", "://message.png", "https://xifeng0126.github.io/public/home.html");
+    });
 
     //设置QCharts折线图
     QLineSeries *series = new QLineSeries();
@@ -172,6 +181,12 @@ void MainWindow::wetherComplete(int i,bool b){  //未完成界面对话框，确
 
 }
 
+void MainWindow::Sleep(int msec)
+{
+    QTime dieTime = QTime::currentTime().addMSecs(msec);
+    while( QTime::currentTime() < dieTime )
+        QCoreApplication::processEvents(QEventLoop::AllEvents, 100);
+}
 
 //完成界面对话框，确定时将第i行的complete值改成no
 void MainWindow::completed(int i,bool b){

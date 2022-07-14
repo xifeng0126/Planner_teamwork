@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>546</width>
-    <height>510</height>
+    <width>600</width>
+    <height>800</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -15,24 +15,32 @@
   </property>
   <property name="windowIcon">
    <iconset>
-    <normaloff>res/appicon.png</normaloff>res/appicon.png</iconset>
+    <normaloff>../resources/apple.PNG</normaloff>../resources/apple.PNG</iconset>
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QGridLayout" name="gridLayout_2">
     <item row="0" column="0">
      <widget class="QStackedWidget" name="stackedWidget">
       <property name="currentIndex">
-       <number>0</number>
+       <number>2</number>
       </property>
       <widget class="QWidget" name="calc">
        <layout class="QGridLayout" name="gridLayout_9">
         <item row="0" column="0">
          <layout class="QVBoxLayout" name="verticalLayout">
           <item>
-           <widget class="QChartView" name="graphicsView"/>
+           <widget class="QChartView" name="graphicsView">
+            <property name="styleSheet">
+             <string notr="true">background-color: rgba(255,255,255,70);</string>
+            </property>
+           </widget>
           </item>
           <item>
-           <widget class="QChartView" name="graphicsView_2"/>
+           <widget class="QChartView" name="graphicsView_2">
+            <property name="styleSheet">
+             <string notr="true">background-color: rgba(255,255,255,70);</string>
+            </property>
+           </widget>
           </item>
          </layout>
         </item>
@@ -41,60 +49,38 @@
       <widget class="QWidget" name="page_2">
        <layout class="QGridLayout" name="gridLayout_10">
         <item row="0" column="0">
-         <widget class="table" name="tableView"/>
+         <widget class="table" name="tableView">
+          <property name="styleSheet">
+           <string notr="true">background-color: rgba(255,255,255,70);</string>
+          </property>
+         </widget>
         </item>
         <item row="1" column="0">
-         <widget class="table" name="tableView_2"/>
+         <widget class="table" name="tableView_2">
+          <property name="styleSheet">
+           <string notr="true">background-color: rgba(255,255,255,70);</string>
+          </property>
+         </widget>
         </item>
        </layout>
       </widget>
       <widget class="QWidget" name="task">
        <layout class="QGridLayout" name="gridLayout_4">
-        <item row="0" column="3">
-         <spacer name="horizontalSpacer_2">
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
-          </property>
-          <property name="sizeHint" stdset="0">
-           <size>
-            <width>218</width>
-            <height>20</height>
-           </size>
-          </property>
-         </spacer>
-        </item>
-        <item row="0" column="0">
-         <spacer name="horizontalSpacer">
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
-          </property>
-          <property name="sizeHint" stdset="0">
-           <size>
-            <width>219</width>
-            <height>20</height>
-           </size>
-          </property>
-         </spacer>
-        </item>
-        <item row="0" column="1">
-         <widget class="QLabel" name="label">
-          <property name="text">
-           <string>学习任务</string>
-          </property>
-         </widget>
-        </item>
-        <item row="1" column="0" colspan="4">
+        <item row="2" column="0" colspan="4">
          <widget class="QToolBox" name="toolBox">
+          <property name="styleSheet">
+           <string notr="true">background-color: rgba(255,255,255,70);</string>
+          </property>
           <property name="currentIndex">
-           <number>1</number>
+           <number>0</number>
           </property>
           <widget class="QWidget" name="page_3">
            <property name="geometry">
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>215</width>
-             <height>136</height>
+             <width>564</width>
+             <height>587</height>
             </rect>
            </property>
            <attribute name="label">
@@ -103,6 +89,9 @@
            <layout class="QGridLayout" name="gridLayout_3">
             <item row="1" column="1">
              <widget class="QProgressBar" name="progressBar">
+              <property name="styleSheet">
+               <string notr="true">background-color: rgba(255,255,255,70);</string>
+              </property>
               <property name="value">
                <number>24</number>
               </property>
@@ -125,8 +114,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>510</width>
-             <height>310</height>
+             <width>564</width>
+             <height>587</height>
             </rect>
            </property>
            <attribute name="label">
@@ -134,7 +123,11 @@
            </attribute>
            <layout class="QGridLayout" name="gridLayout_5">
             <item row="0" column="0">
-             <widget class="list" name="listView_2"/>
+             <widget class="list" name="listView_2">
+              <property name="styleSheet">
+               <string notr="true">background-color: rgba(255,255,255,70);</string>
+              </property>
+             </widget>
             </item>
            </layout>
           </widget>
@@ -143,8 +136,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>372</width>
-             <height>174</height>
+             <width>564</width>
+             <height>587</height>
             </rect>
            </property>
            <attribute name="label">
@@ -171,7 +164,11 @@
                 <item row="0" column="0">
                  <layout class="QGridLayout" name="gridLayout">
                   <item row="3" column="2">
-                   <widget class="QDateTimeEdit" name="dateTimeEdit_2"/>
+                   <widget class="QDateTimeEdit" name="dateTimeEdit_2">
+                    <property name="styleSheet">
+                     <string notr="true">background-color: rgba(255,255,255,70);</string>
+                    </property>
+                   </widget>
                   </item>
                   <item row="2" column="0" colspan="2">
                    <widget class="QLabel" name="label_4">
@@ -198,7 +195,11 @@
                    <widget class="QLineEdit" name="lineEdit"/>
                   </item>
                   <item row="1" column="1" colspan="2">
-                   <widget class="QComboBox" name="comboBox"/>
+                   <widget class="QComboBox" name="comboBox">
+                    <property name="styleSheet">
+                     <string notr="true">background-color: rgba(255,255,255,70);</string>
+                    </property>
+                   </widget>
                   </item>
                   <item row="1" column="0">
                    <widget class="QLabel" name="label_3">
@@ -208,7 +209,11 @@
                    </widget>
                   </item>
                   <item row="2" column="2">
-                   <widget class="QDateTimeEdit" name="dateTimeEdit"/>
+                   <widget class="QDateTimeEdit" name="dateTimeEdit">
+                    <property name="styleSheet">
+                     <string notr="true">background-color: rgba(255,255,255,70);</string>
+                    </property>
+                   </widget>
                   </item>
                  </layout>
                 </item>
@@ -222,7 +227,11 @@
                    </widget>
                   </item>
                   <item>
-                   <widget class="QTextEdit" name="textEdit"/>
+                   <widget class="QTextEdit" name="textEdit">
+                    <property name="styleSheet">
+                     <string notr="true">background-color: rgba(255,255,255,70);</string>
+                    </property>
+                   </widget>
                   </item>
                  </layout>
                 </item>
@@ -232,8 +241,21 @@
                <layout class="QHBoxLayout" name="horizontalLayout">
                 <item>
                  <widget class="QPushButton" name="ok">
+                  <property name="styleSheet">
+                   <string notr="true">background-color: rgba(255,255,255,70);</string>
+                  </property>
                   <property name="text">
-                   <string>确定</string>
+                   <string/>
+                  </property>
+                  <property name="icon">
+                   <iconset>
+                    <normaloff>../resources/37CF57182DDEB6469851836D20F00638.png</normaloff>../resources/37CF57182DDEB6469851836D20F00638.png</iconset>
+                  </property>
+                  <property name="iconSize">
+                   <size>
+                    <width>70</width>
+                    <height>16</height>
+                   </size>
                   </property>
                  </widget>
                 </item>
@@ -252,8 +274,21 @@
                 </item>
                 <item>
                  <widget class="QPushButton" name="cansle">
+                  <property name="styleSheet">
+                   <string notr="true">background-color: rgba(255,255,255,70);</string>
+                  </property>
                   <property name="text">
-                   <string>取消</string>
+                   <string/>
+                  </property>
+                  <property name="icon">
+                   <iconset>
+                    <normaloff>../resources/EC5CB6F3435B6BC9B80A3D2CBC3993B4.png</normaloff>../resources/EC5CB6F3435B6BC9B80A3D2CBC3993B4.png</iconset>
+                  </property>
+                  <property name="iconSize">
+                   <size>
+                    <width>70</width>
+                    <height>16</height>
+                   </size>
                   </property>
                  </widget>
                 </item>
@@ -291,6 +326,42 @@
           </widget>
          </widget>
         </item>
+        <item row="0" column="0">
+         <spacer name="horizontalSpacer">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>219</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item row="0" column="3">
+         <spacer name="horizontalSpacer_2">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>218</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item row="0" column="2">
+         <widget class="QLabel" name="label">
+          <property name="styleSheet">
+           <string notr="true">font: 20pt &quot;隶书&quot;;</string>
+          </property>
+          <property name="text">
+           <string>学习任务</string>
+          </property>
+         </widget>
+        </item>
        </layout>
       </widget>
      </widget>
@@ -302,7 +373,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>546</width>
+     <width>600</width>
      <height>26</height>
     </rect>
    </property>
@@ -346,14 +417,14 @@
    <header>table.h</header>
   </customwidget>
   <customwidget>
-   <class>QChartView</class>
-   <extends>QGraphicsView</extends>
-   <header>qchartview.h</header>
-  </customwidget>
-  <customwidget>
    <class>list</class>
    <extends>QListView</extends>
    <header>list.h</header>
+  </customwidget>
+  <customwidget>
+   <class>QChartView</class>
+   <extends>QGraphicsView</extends>
+   <header>qchartview.h</header>
   </customwidget>
  </customwidgets>
  <resources/>

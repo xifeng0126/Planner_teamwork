@@ -6,18 +6,25 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
-    <height>300</height>
+    <width>500</width>
+    <height>401</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>登录</string>
   </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>../resources/apple.PNG</normaloff>../resources/apple.PNG</iconset>
+  </property>
+  <property name="styleSheet">
+   <string notr="true"/>
+  </property>
   <widget class="QWidget" name="widget_4" native="true">
    <property name="geometry">
     <rect>
-     <x>0</x>
-     <y>200</y>
+     <x>40</x>
+     <y>320</y>
      <width>378</width>
      <height>50</height>
     </rect>
@@ -44,6 +51,9 @@
     </item>
     <item>
      <widget class="QPushButton" name="signIn">
+      <property name="styleSheet">
+       <string notr="true">background-color: rgba(255,255,255,70);</string>
+      </property>
       <property name="text">
        <string/>
       </property>
@@ -77,6 +87,9 @@
     </item>
     <item>
      <widget class="QPushButton" name="exitOut">
+      <property name="styleSheet">
+       <string notr="true">background-color: rgba(255,255,255,70);</string>
+      </property>
       <property name="text">
        <string/>
       </property>
@@ -110,8 +123,8 @@
   <widget class="QWidget" name="widget" native="true">
    <property name="geometry">
     <rect>
-     <x>0</x>
-     <y>41</y>
+     <x>40</x>
+     <y>180</y>
      <width>378</width>
      <height>118</height>
     </rect>
@@ -182,6 +195,9 @@
     </item>
     <item row="1" column="2">
      <widget class="QPushButton" name="openSignUp">
+      <property name="styleSheet">
+       <string notr="true">background-color: rgba(255,255,255,70);</string>
+      </property>
       <property name="text">
        <string/>
       </property>

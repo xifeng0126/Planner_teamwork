@@ -23,6 +23,8 @@ SOURCES += main.cpp\
     mainwindow.cpp \
     login.cpp \
     moreui.cpp \
+    notify.cpp \
+    notifymanager.cpp \
     showuser.cpp \
     startui.cpp \
     signup.cpp \
@@ -41,6 +43,8 @@ HEADERS  += mainwindow.h \
     list.h \
     login.h \
     moreui.h \
+    notify.h \
+    notifymanager.h \
     showuser.h \
     startui.h \
     signup.h \
@@ -60,5 +64,8 @@ FORMS    += mainwindow.ui \
     signup.ui \
     textwidget.ui\
     notewindow.ui
+
+RESOURCES += \
+    image.qrc
 
 

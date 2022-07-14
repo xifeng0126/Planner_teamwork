@@ -25,7 +25,7 @@ startui::startui(QWidget *parent) :
     //.cpp
         QPalette pa(this->palette());
 
-        QImage img = QImage("../resources/1.png");
+        QImage img = QImage("../resources/2.JPG");
         img = img.scaled(this->size());
 
 

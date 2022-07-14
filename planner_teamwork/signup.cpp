@@ -11,6 +11,20 @@ signup::signup(QWidget *parent) :
 {
     ui->setupUi(this);
     m_box->setParent(this);
+
+    QPalette pa(this->palette());
+
+    QImage img = QImage("../resources/4.png");
+    img = img.scaled(this->size());
+
+
+    QBrush *pic = new QBrush(img);
+
+    pa.setBrush(QPalette::Window,*pic);
+
+    //this->setAutoFillBackground(true);
+    this->setPalette(pa);
+
     yesbtn = m_box->addButton("yes", QMessageBox::AcceptRole);
      nobtn = m_box->addButton("no", QMessageBox::RejectRole);
     connect(ui->signIn,&QPushButton::clicked,[=](){
