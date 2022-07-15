@@ -10,7 +10,7 @@ class table : public QTableView
 public:
     explicit table(QWidget *parent = nullptr);
 protected:
-    void mouseReleaseEvent(QMouseEvent *event) override;
+    void mouseReleaseEvent(QMouseEvent *event) override;//重写表单鼠标点击事件
     void sentSign(int,bool);
 signals:
     void releaseSign(int,bool);

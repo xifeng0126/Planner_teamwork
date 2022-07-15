@@ -24,9 +24,9 @@ public:
     bool check(QString);//注册时查询账户名是否已存在
     ~signup();
 signals:
-    void checkStart();
-    void appStart();
-    void openLogIn();
+    void checkStart();//发出检测开始信号
+    void appStart();//发出进入应用信号
+    void openLogIn();//切换至登录界面
 public slots:
     void buttonClicked(QAbstractButton *btn);
 

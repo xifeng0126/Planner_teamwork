@@ -17,7 +17,7 @@ public:
     explicit textWidget(QWidget *parent = nullptr);
     ~textWidget();
 
-    void setText(QString);
+    void setText(QString);//显示任务或笔记详情
     void setButtonNum(int);
     //void sendSign(int);
     //void send();

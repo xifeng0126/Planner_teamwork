@@ -15,6 +15,18 @@ noteWindow::noteWindow(QWidget *parent) :
     ui(new Ui::noteWindow)
 {
     ui->setupUi(this);
+    QPalette pa(this->palette());
+
+    QImage img = QImage("../resources/nbg.png");
+    img = img.scaled(this->size());
+
+
+    QBrush *pic = new QBrush(img);
+
+    pa.setBrush(QPalette::Window,*pic);
+
+    //this->setAutoFillBackground(true);
+    this->setPalette(pa);
     db=QSqlDatabase::addDatabase("QSQLITE");
     db.setDatabaseName("system.db");
 

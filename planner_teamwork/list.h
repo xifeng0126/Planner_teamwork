@@ -10,7 +10,7 @@ class list : public QListView
 public:
     explicit list(QWidget *parent = nullptr);
 protected:
-    void mouseReleaseEvent(QMouseEvent *event) override;
+    void mouseReleaseEvent(QMouseEvent *event) override;   //社区界面右键显示创建者
     void sentSign(int,bool);
 signals:
     void releaseSign(int,bool);

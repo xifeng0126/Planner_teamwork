@@ -13,7 +13,7 @@ class showUser : public QWidget
     Q_OBJECT
 
 public:
-    explicit showUser(QWidget *parent = nullptr);
+    explicit showUser(QWidget *parent = nullptr);//显示社区中笔记创建者
     ~showUser();
     void setName(QString);
 

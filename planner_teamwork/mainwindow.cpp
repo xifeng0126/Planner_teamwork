@@ -1,4 +1,4 @@
-#include "mainwindow.h"
+﻿#include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "notifymanager.h"
 #include"list.h"
@@ -39,9 +39,20 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    this->setMinimumSize(1500,1000);
+   // this->setMinimumSize(1500,1000);
+
+    QPalette pa(this->palette());
+
+    QImage img = QImage("../resources/nbg.png");
+    img = img.scaled(this->size());
 
 
+    QBrush *pic = new QBrush(img);
+
+    pa.setBrush(QPalette::Window,*pic);
+
+    //this->setAutoFillBackground(true);
+    this->setPalette(pa);
     NotifyManager *manager = new NotifyManager(this);
 
     connect(&m_login,&login::checkStart, manager, [this,manager]{
@@ -70,7 +81,7 @@ MainWindow::MainWindow(QWidget *parent) :
     //到此为止，qchart折线图初始化完毕
 
 
-    createpieSewies();
+    //createpieSewies();
     on_actiona_triggered();
     connect(ui->tableView,&table::releaseSign,this,&MainWindow::wetherComplete);  //设置右键点击显示对话框
     connect(ui->tableView_2,&table::releaseSign,this,&MainWindow::completed);    //同上
@@ -102,21 +113,12 @@ MainWindow::MainWindow(QWidget *parent) :
     });
     connect(&m_sign,&signup::checkStart,[=](){
         user_name = m_signcheck();
-        //connectDB(user_name);
         connectDB();
     });
-
-    //connectDB(user_name);//打开数据库
 
     connect(this,&MainWindow::appStart,[=](){
         m_sign.close();
         m_login.close();
-
-        //this_UID=UID;
-        //show();
-
-        //noteW=new noteWindow;
-
         noteW.show();
         noteW.setmodel();
 
@@ -127,11 +129,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
     });
 
-    //if(!system_db.open()){
-
     connectUSER();
-
-    //}
     system_db.open();
     m_start.show();
 
@@ -141,7 +139,6 @@ MainWindow::MainWindow(QWidget *parent) :
 MainWindow::~MainWindow()
 {
     delete ui;
-    db.close();
 }
 
 void MainWindow::wetherComplete(int i,bool b){  //未完成界面对话框，确定时将第i行的complete值改成yes
@@ -163,8 +160,13 @@ void MainWindow::wetherComplete(int i,bool b){  //未完成界面对话框，确
     }
     if(!b){
         tWidget=new textWidget;
-        QModelIndex index=model->index(i,4);
-        QString str=model->data(index).toString();
+        QModelIndex index1=model->index(i,4);
+        QModelIndex index2=model->index(i,2);
+        QModelIndex index3=model->index(i,3);
+        QString str1=model->data(index1).toString();
+        QString str2=model->data(index2).toString();
+        QString str3=model->data(index3).toString();
+        QString str = str1+"\n\n\n"+str2+"\n"+str3;
         tWidget->setText(str);
         tWidget->show();
 
@@ -204,8 +206,13 @@ void MainWindow::completed(int i,bool b){
     }
     if(!b){
         tWidget=new textWidget;
-        QModelIndex index=model2->index(i,4);
-        QString str=model2->data(index).toString();
+        QModelIndex index1=model2->index(i,4);
+        QModelIndex index2=model2->index(i,2);
+        QModelIndex index3=model2->index(i,3);
+        QString str1=model2->data(index1).toString();
+        QString str2=model2->data(index2).toString();
+        QString str3=model2->data(index3).toString();
+        QString str = str1+"\n\n\n"+str2+"\n"+str3;
         tWidget->setText(str);
         tWidget->show();
 
@@ -312,6 +319,7 @@ void MainWindow::setModel(){
 
     setProgress(WaitComplete,Completed);
     setListModel();
+    createpieSewies(WaitComplete,Completed);
 }
 
 void MainWindow::setInportance(){    //设置优先级表单
@@ -515,7 +523,7 @@ bool MainWindow::QueryUserData_1()//登录检测
 }
 
 //饼状图的初始化函数
-void MainWindow::createpieSewies()
+void MainWindow::createpieSewies(double a,double b)
 {
     //饼状图
     QPieSeries * my_pieSeries = new QPieSeries();
@@ -523,8 +531,9 @@ void MainWindow::createpieSewies()
     my_pieSeries->setHoleSize(0.35);
     //扇形及数据
     QPieSlice *pieSlice_running = new QPieSlice();
-    pieSlice_running->setValue(25);//扇形占整个圆的百分比
-    pieSlice_running->setLabel("待完成 2/8");
+    //pieSlice_running->setValue(25);//扇形占整个圆的百分比
+    pieSlice_running->setValue(a/(a+b));
+    pieSlice_running->setLabel(QString("待完成 %1/%2").arg(a).arg(a+b));
     pieSlice_running->setLabelVisible();
     pieSlice_running->setColor(QColor("#4cb9cf"));
     pieSlice_running->setLabelColor(QColor("#4cb9cf"));
@@ -532,18 +541,18 @@ void MainWindow::createpieSewies()
     pieSlice_running->setBorderColor(QColor());
     my_pieSeries->append(pieSlice_running);
 
-    QPieSlice *pieSlice_noconnect = new QPieSlice();
-    pieSlice_noconnect->setValue(25);
-    pieSlice_noconnect->setLabel("已过期 2/8");
-    pieSlice_noconnect->setColor(QColor("#53b666"));
-    pieSlice_noconnect->setLabelColor(QColor("#53b666"));
-    pieSlice_noconnect->setBorderColor(QColor("#53b666"));
-    pieSlice_noconnect->setLabelVisible();//设置标签可见,缺省不可见
-    my_pieSeries->append(pieSlice_noconnect);
+//    QPieSlice *pieSlice_noconnect = new QPieSlice();
+//    pieSlice_noconnect->setValue(25);
+//    pieSlice_noconnect->setLabel("已过期 2/8");
+//    pieSlice_noconnect->setColor(QColor("#53b666"));
+//    pieSlice_noconnect->setLabelColor(QColor("#53b666"));
+//    pieSlice_noconnect->setBorderColor(QColor("#53b666"));
+//    pieSlice_noconnect->setLabelVisible();//设置标签可见,缺省不可见
+//    my_pieSeries->append(pieSlice_noconnect);
 
     QPieSlice *pieSlice_idle = new QPieSlice();
-    pieSlice_idle->setValue(50);
-    pieSlice_idle->setLabel("已完成 4/8");
+    pieSlice_idle->setValue(b/(a+b));
+    pieSlice_idle->setLabel(QString("已完成 %1/%2").arg(b).arg(a+b));
     pieSlice_idle->setLabelVisible();
     pieSlice_idle->setColor(QColor("#2f89cf"));
     pieSlice_idle->setLabelColor(QColor("#2f89cf"));

@@ -23,15 +23,15 @@ class noteWindow : public QMainWindow
 public:
     explicit noteWindow(QWidget *parent = nullptr);
     ~noteWindow();
-    void setmodel();
-    void showNote(int,bool);
-    void showCom(int,bool);
-    void setListModel();
+    void setmodel();//设置tableview
+    void showNote(int,bool);//设置我的笔记
+    void showCom(int,bool);//设置社区
+    void setListModel();//设置listView
 
 
-    QSqlDatabase db;
-    int UID;
-    bool whetherPublic;
+    QSqlDatabase db;//数据库
+    int UID;//每个用户对应唯一标识
+    bool whetherPublic;//笔记是否公开属性
 private slots:
     void on_tasksButton_clicked();
 
@@ -69,14 +69,14 @@ protected:
 
 private:
     Ui::noteWindow *ui;
-    QSqlTableModel *model;
-    QSqlTableModel *model2;
+    QSqlTableModel *model;//我的笔记表单
+    QSqlTableModel *model2;//社区表单
 
-    QStringListModel *smodel;
-    QStringListModel *smodel2;
+    QStringListModel *smodel;//我的笔记表单
+    QStringListModel *smodel2;//社区表单
 
-    textWidget *tWidget;
-    showUser *user;
+    textWidget *tWidget;//笔记详情界面
+    showUser *user;//创建者界面
 };
 
 #endif // NOTEWINDOW_H

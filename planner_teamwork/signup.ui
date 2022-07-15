@@ -51,8 +51,8 @@
         </property>
         <property name="iconSize">
          <size>
-          <width>60</width>
-          <height>16</height>
+          <width>80</width>
+          <height>30</height>
          </size>
         </property>
        </widget>
@@ -75,8 +75,8 @@
      </property>
      <property name="iconSize">
       <size>
-       <width>60</width>
-       <height>16</height>
+       <width>80</width>
+       <height>30</height>
       </size>
      </property>
     </widget>
@@ -154,8 +154,8 @@
      </property>
      <property name="iconSize">
       <size>
-       <width>60</width>
-       <height>16</height>
+       <width>80</width>
+       <height>30</height>
       </size>
      </property>
      <property name="checkable">

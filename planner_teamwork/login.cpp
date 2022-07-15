@@ -70,6 +70,7 @@ void login::buttonClicked(QAbstractButton *btn){
     {
         if(btn == (QAbstractButton *)yesbtn)
             donotRem = false;
+        return;
     }
     if(btn ==(QAbstractButton *) nobtn)
         m_box->close();

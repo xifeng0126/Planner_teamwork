@@ -1,4 +1,4 @@
-#ifndef MAINWINDOW_H
+﻿#ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
 #include <QMainWindow>
@@ -40,26 +40,27 @@ public:
     moreUI m_moreUI;
     noteWindow noteW;
     Window m_window;
-    void connectDB();
+    void connectDB();//打开数据库
     void connectUSER();
-    void intitData();
-    void setInportance();
-    void wetherComplete(int,bool);
-    void completed(int,bool);
-    void setModel();
-    void setListModel();
+    void intitData();//设置优先级下拉菜单
+    void setInportance();//创建优先级表单
+    void wetherComplete(int,bool);//学习任务界面左键任务显示是否完成
+    void completed(int,bool);//学习任务完成界面左键任务显示是否完成
+    void setModel();//设置tableView
+    void setListModel();//设置listView
+    void Sleep(int msec);
 
-    void setProgress(double,double);
+    void setProgress(double,double);//设置进度条
     //void closeButton();
-    void createpieSewies();
+    void createpieSewies(double,double);
 
     QString  m_logincheck();//存在则返回用户名，不存在则报错，并返回NULl
     QString  m_signcheck();//存在报错返回NULL,不存在则注册
     QString  user_name;
 
-    int UID;
+    int UID;//每个用户对应唯一标识
 
-    int this_UID;
+    //int this_UID;
 
 private slots:
     void on_actiona_triggered();
@@ -86,20 +87,17 @@ signals:
 private:
 
     Ui::MainWindow *ui;
-    QSqlTableModel *model;
-    QSqlTableModel *model2;
+    QSqlTableModel *model;//未完成任务表单
+    QSqlTableModel *model2;//已完成任务表单
     //QSqlTableModel *model3;
 
-    QStringListModel *smodel;
-    QStringListModel *smodel2;
+    QStringListModel *smodel;//未完成任务表单
+    QStringListModel *smodel2;//已完成任务表单
 
-    QSqlDatabase db;
-    QSqlDatabase dbPublic;
+    textWidget *tWidget;//任务详情界面
 
-    textWidget *tWidget;
-
-    double WaitComplete=0;
-    double Completed=0;
+    double WaitComplete=0;//记录未完成任务
+    double Completed=0;//记录完成任务
 
     QSqlDatabase system_db;//用户名，密码数据库
 

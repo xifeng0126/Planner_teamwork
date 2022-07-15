@@ -1,4 +1,4 @@
-#ifndef login_H
+﻿#ifndef login_H
 #define login_H
 
 #include<QWidget>
@@ -23,11 +23,11 @@ public:
     bool donotRem;
     ~login();
 signals:
-    void checkStart();
-    void appStart();
-    void openSignUp();
+    void checkStart();//发出检测开始信号
+    void appStart();//发出进入应用信号
+    void openSignUp();//切换至注册信号
 public slots:
-    bool check(QString,QString);//查询账户，待完善
+    bool check(QString,QString);//查询账户
     void buttonClicked(QAbstractButton *btn);
 
 
